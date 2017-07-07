@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#22292F</color>
+    <color name="colorPrimaryDark">#1B2023</color>
+    <color name="colorAccentChido">#F9000A</color>
+    <color name="colorAccent">#009688</color>
+
+    <!--
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#616161</color>
+    <color name="colorAccent">#009688</color>
+    -->
+
+    <color name="colorAccentAlpha">#AA009688</color>
+    <color name="colorPrimaryLight">#F5F5F5</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorIcons">#212121</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#AA000000</color>
+    <color name="amarillo">#D7DF01</color>
+    <color name="amarillo2">#C4CB00</color>
+    <color name="amarillo_alpha">#CCC4CB00</color>
+
+    <color name="rutina_boton_amarillo_1">#FFC61B</color>
+    <color name="rutina_boton_amarillo_2">#EAA22F</color>
+
+</resources>

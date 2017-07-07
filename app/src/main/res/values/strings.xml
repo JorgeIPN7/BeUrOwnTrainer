@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Be Ur Own Trainer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="pp_btn_comenzar">Comenzar</string>
+    <string name="pp_btn_editar_rutina">Editar Rutina</string>
+    <string name="pp_btn_progreso">Progreso</string>
+    <string name="pp_btn_avances">Avances</string>
+    <string name="accesorios">Accesorios</string>
+
+
+    <string name="btn_show_rutine">Ver Rutina</string>
+    <string name="btn_data">Ver Medidas</string>
+    <string name="btn_camera">Ver Avances</string>
+    <string name="start">Comenzar</string>
+    <string name="pause">Pausa</string>
+    <string name="continuar">Continuar</string>
+    <string name="next">Siguiente ejercicio</string>
+    <string name="end">Finalizar</string>
+    <string name="regresar">Regresar</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sábado</string>
+    <string name="sunday">Domingo</string>
+    <string name="mensaje_pp">¡El día de hoy no hay ejercicios registrados! \n\nPulsa en \"Ver Rutina\" y selecciona el día de hoy para agregar algunos.</string>
+    <string name="title_activity_ver_avances">VerAvancesActivity</string>
+
+    <string name="ver_avances_activity_tomarfoto">Tomar Foto</string>
+    <string name="ver_avances_activity_elegirfoto">Elegir Foto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="title_activity_editar_rutina">EditarRutina</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+</resources>

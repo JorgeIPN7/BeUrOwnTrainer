@@ -1,0 +1,27 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="size_btn_pp">20sp</dimen>
+    <dimen name="layout_height_btn_pp">50dp</dimen>
+    <dimen name="layout_height_btn_dialog">100dp</dimen>
+    <dimen name="layout_height_btn_dialog_add_ejercicio_rutina">50dp</dimen>
+
+
+    <dimen name="paddingLeft_btn_pp">50dp</dimen>
+    <dimen name="drawablePadding_btn_pp">60dp</dimen>
+
+
+    <dimen name="layout_marginBotton_btn_pp">20dp</dimen>
+    <dimen name="paddingLeft_btn_rutina">15dp</dimen>
+
+    <dimen name="rutina_boton_margin">7dp</dimen>
+    <dimen name="rutina_boton_padding">10dp</dimen>
+    <dimen name="text_size_btn_rutina">14sp</dimen>
+
+
+</resources>
