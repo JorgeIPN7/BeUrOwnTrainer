@@ -13,6 +13,7 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
 import jorgeipn7.com.beurowntrainer.models.Musculo;
+import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 /**
  * Created by Jorge on 10/07/2017.
@@ -21,6 +22,7 @@ import jorgeipn7.com.beurowntrainer.models.Musculo;
 public class MyAplication extends Application {
     public static AtomicInteger EjercicioId= new AtomicInteger();
     public static AtomicInteger MusculoId= new AtomicInteger();
+    public static AtomicInteger RutinaId= new AtomicInteger();
 
     @Override
     public void onCreate() {
@@ -30,6 +32,7 @@ public class MyAplication extends Application {
         Realm realm= Realm.getDefaultInstance();
         EjercicioId= getIdByTable(realm, Ejercicio.class);
         MusculoId= getIdByTable(realm, Musculo.class);
+        RutinaId= getIdByTable(realm, Rutina.class);
         realm.close();
     }
 

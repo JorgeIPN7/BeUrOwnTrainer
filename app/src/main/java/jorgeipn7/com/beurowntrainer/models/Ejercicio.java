@@ -3,6 +3,7 @@ package jorgeipn7.com.beurowntrainer.models;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import jorgeipn7.com.beurowntrainer.aplicacion.MyAplication;
 
 /**
  * Created by Jorge on 09/07/2017.
@@ -15,34 +16,34 @@ public class Ejercicio extends RealmObject{
 
     private int foto;
     private String nombre;
-
+    private boolean favorito;
+    //Clasificación
     private String utilidad;
     private String mecanismo;
     private String tipoFuerza;
+    //Instrucciones
+    private String preparacion;
+    private String ejecucion;
+    private String comentarios;
+    private String urlInstrucciones;
 
-    private int descansoSerie;
-    private int descansoFinal;
 
-    private int series;
-    private int peso;
-
-    private Musculo tipoMusculo;
 
     public Ejercicio() {
     }
 
-    public Ejercicio(int foto, String nombre, String utilidad, String mecanismo, String tipoFuerza, int descansoSerie, int descansoFinal, int series, int peso, Musculo tipoMusculo) {
-        this.id = id;
+    public Ejercicio(int foto, String nombre, String utilidad, String mecanismo, String tipoFuerza, String preparacion, String ejecucion, String comentarios, String urlInstrucciones) {
+        this.id = MyAplication.EjercicioId.incrementAndGet();
         this.foto = foto;
         this.nombre = nombre;
         this.utilidad = utilidad;
         this.mecanismo = mecanismo;
         this.tipoFuerza = tipoFuerza;
-        this.descansoSerie = descansoSerie;
-        this.descansoFinal = descansoFinal;
-        this.series = series;
-        this.peso = peso;
-        this.tipoMusculo = tipoMusculo;
+        this.preparacion = preparacion;
+        this.ejecucion = ejecucion;
+        this.comentarios = comentarios;
+        this.urlInstrucciones = urlInstrucciones;
+        this.favorito= false;
     }
 
     public int getId() {
@@ -89,43 +90,43 @@ public class Ejercicio extends RealmObject{
         this.tipoFuerza = tipoFuerza;
     }
 
-    public int getDescansoSerie() {
-        return descansoSerie;
+    public String getPreparacion() {
+        return preparacion;
     }
 
-    public void setDescansoSerie(int descansoSerie) {
-        this.descansoSerie = descansoSerie;
+    public void setPreparacion(String preparacion) {
+        this.preparacion = preparacion;
     }
 
-    public int getDescansoFinal() {
-        return descansoFinal;
+    public String getEjecucion() {
+        return ejecucion;
     }
 
-    public void setDescansoFinal(int descansoFinal) {
-        this.descansoFinal = descansoFinal;
+    public void setEjecucion(String ejecucion) {
+        this.ejecucion = ejecucion;
     }
 
-    public int getSeries() {
-        return series;
+    public String getComentarios() {
+        return comentarios;
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
     }
 
-    public int getPeso() {
-        return peso;
+    public String getUrlInstrucciones() {
+        return urlInstrucciones;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
+    public void setUrlInstrucciones(String urlInstrucciones) {
+        this.urlInstrucciones = urlInstrucciones;
     }
 
-    public Musculo getTipoMusculo() {
-        return tipoMusculo;
+    public boolean isFavorito() {
+        return favorito;
     }
 
-    public void setTipoMusculo(Musculo tipoMusculo) {
-        this.tipoMusculo = tipoMusculo;
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
 }

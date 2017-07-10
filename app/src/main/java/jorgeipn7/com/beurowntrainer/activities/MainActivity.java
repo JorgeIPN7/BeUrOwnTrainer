@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,7 +17,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import io.realm.Realm;
 import jorgeipn7.com.beurowntrainer.R;
+import jorgeipn7.com.beurowntrainer.bd.DiaDB;
+import jorgeipn7.com.beurowntrainer.bd.EjercicioBD;
+import jorgeipn7.com.beurowntrainer.bd.RutinaBD;
+import jorgeipn7.com.beurowntrainer.models.Dia;
+import jorgeipn7.com.beurowntrainer.models.Ejercicio;
+import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -31,6 +39,11 @@ public class MainActivity extends AppCompatActivity
     btn_accesorios;
     TextView tv_mensaje_pp;
 
+    //BD
+    Realm realm;
+    EjercicioBD ejercicioBD;
+    RutinaBD rutinaBD;
+    DiaDB diaDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +65,40 @@ public class MainActivity extends AppCompatActivity
 
 
         inicializarElementos();
+
+        realm= Realm.getDefaultInstance();
+        ejercicioBD= new EjercicioBD(realm);
+        rutinaBD= new RutinaBD(realm);
+        diaDB= new DiaDB(realm);
+
+        /*
+        ejercicioBD.crearNuevo(new Ejercicio(R.drawable.deadlift, "Dead Lift","Básico", "Espalda", "Pull", "Preparación", "Ejecución...", "Comentarios...", "https://www.youtube.com/watch?v=RyJbvWAh6ec"));
+
+        rutinaBD.crearNuevo(new Rutina(5,0,5,0,80,0,60,90,0 ));
+
+
+        Rutina r= rutinaBD.getRutinaByDia(1);
+        Ejercicio e= ejercicioBD.getEjercicioById(1);
+
+        rutinaBD.updateEjercicioRutina(r, e);
+
+        diaDB.crearNuevo(new Dia(2 , "Martes"));
+
+        diaDB.updateDiaAddRutina(diaDB.getRutinaById(1), rutinaBD.getRutinaByDia(1));
+*/
+
+
+
+
+
+
+
+        /*
+        *
+        * me falta crear los dias y relacionar la rutina con el dia
+        * */
+
+
 
     }
 

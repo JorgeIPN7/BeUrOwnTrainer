@@ -3,6 +3,7 @@ package jorgeipn7.com.beurowntrainer.models;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import jorgeipn7.com.beurowntrainer.aplicacion.MyAplication;
 
 /**
  * Created by Jorge on 10/07/2017.
@@ -12,7 +13,6 @@ public class Musculo extends RealmObject{
 
     @PrimaryKey
     private int id;
-
     private int foto;
     private String nombre;
     private RealmList<Ejercicio> ejercicios;
@@ -21,7 +21,7 @@ public class Musculo extends RealmObject{
     }
 
     public Musculo( int foto, String nombre, RealmList<Ejercicio> ejercicios) {
-        this.id = id;
+        this.id = MyAplication.MusculoId.incrementAndGet();
         this.foto = foto;
         this.nombre = nombre;
         this.ejercicios = ejercicios;
