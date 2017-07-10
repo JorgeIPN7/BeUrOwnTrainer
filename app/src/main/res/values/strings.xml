@@ -40,7 +40,6 @@
     <string name="title_notifications">Notifications</string>
 
 
-
     <string name="dia_1">L</string>
     <string name="dia_2">M</string>
     <string name="dia_3">M</string>
@@ -49,12 +48,8 @@
     <string name="dia_6">S</string>
     <string name="dia_7">D</string>
 
-
-
-
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

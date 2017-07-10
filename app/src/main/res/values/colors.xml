@@ -2,8 +2,11 @@
 <resources>
     <color name="colorPrimary">#22292F</color>
     <color name="colorPrimaryDark">#1B2023</color>
-    <color name="colorAccentChido">#F9000A</color>
     <color name="colorAccent">#009688</color>
+    <color name="colorAccentAlpha">#AA009688</color>
+
+    <color name="colorAccentChido">#f9000a</color>
+    <color name="colorAccentChidoAlpha">#aaf9000a</color>
 
     <!--
     <color name="colorPrimary">#212121</color>
@@ -11,10 +14,11 @@
     <color name="colorAccent">#009688</color>
     -->
 
-    <color name="colorAccentAlpha">#AA009688</color>
+
     <color name="colorPrimaryLight">#F5F5F5</color>
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
+
     <color name="colorIcons">#212121</color>
     <color name="colorDivider">#BDBDBD</color>
 
