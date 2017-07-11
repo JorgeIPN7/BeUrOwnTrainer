@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -26,7 +28,7 @@ import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 //fragment_editar_rutina_lunes
 
-public class FragmentLunes extends Fragment {
+public class FragmentLunes extends Fragment implements View.OnClickListener{
 
     private RealmList<Rutina> rutinas;
     private RecyclerView recyclerView;
@@ -37,6 +39,9 @@ public class FragmentLunes extends Fragment {
     RutinaBD rutinaBD;
     Realm realm;
 
+    Button btn_editar_rutina_add1,
+            btn_editar_rutina_add2;
+
     public FragmentLunes() {
         // Required empty public constructor
     }
@@ -45,6 +50,10 @@ public class FragmentLunes extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
 
         realm= Realm.getDefaultInstance();
         diaBD= new DiaDB(realm);
@@ -69,7 +78,27 @@ public class FragmentLunes extends Fragment {
         });
         recyclerView.setAdapter(adapter);
 
+
+
+        btn_editar_rutina_add1= (Button)v.findViewById(R.id.btn_editar_rutina_add1);
+        btn_editar_rutina_add2= (Button)v.findViewById(R.id.btn_editar_rutina_add2);
+        btn_editar_rutina_add1.setOnClickListener(this);
+        btn_editar_rutina_add2.setOnClickListener(this);
+
         return v;
     }
 
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.btn_editar_rutina_add1:
+                Log.d("FragmentLunes", "Click: btn agregar 1");
+                break;
+            case R.id.btn_editar_rutina_add2:
+                Log.d("FragmentLunes", "Click: btn agregar 2");
+                break;
+            default:break;
+        }
+    }
 }

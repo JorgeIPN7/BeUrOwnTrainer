@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity
         rutinaBD= new RutinaBD(realm);
         diaDB= new DiaDB(realm);
 
+
         /*
-        ejercicioBD.crearNuevo(new Ejercicio(R.drawable.deadlift, "Dead Lift","Básico", "Espalda", "Pull", "Preparación", "Ejecución...", "Comentarios...", "https://www.youtube.com/watch?v=RyJbvWAh6ec"));
 
         rutinaBD.crearNuevo(new Rutina(5,0,5,0,80,0,60,90,0 ));
 
@@ -81,22 +81,10 @@ public class MainActivity extends AppCompatActivity
         Ejercicio e= ejercicioBD.getEjercicioById(1);
 
         rutinaBD.updateEjercicioRutina(r, e);
-
-        diaDB.crearNuevo(new Dia(2 , "Martes"));
-
         diaDB.updateDiaAddRutina(diaDB.getRutinaById(1), rutinaBD.getRutinaByDia(1));
 */
 
 
-
-
-
-
-
-        /*
-        *
-        * me falta crear los dias y relacionar la rutina con el dia
-        * */
 
 
 

@@ -84,33 +84,71 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_monday:
                 showToolBar(getResources().getString(R.string.monday));
                 fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentLunes);
-                btn_monday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(1);
                 break;
             case R.id.btn_tuesday:
                 showToolBar(getResources().getString(R.string.tuesday));
-                btn_tuesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(2);
                 break;
             case R.id.btn_wednesday:
                 showToolBar(getResources().getString(R.string.wednesday));
-                btn_wednesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(3);
                 break;
             case R.id.btn_thursday:
                 showToolBar(getResources().getString(R.string.thursday));
-                btn_thursday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(4);
                 break;
             case R.id.btn_friday:
                 showToolBar(getResources().getString(R.string.friday));
-                btn_friday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(5);
                 break;
             case R.id.btn_saturday:
                 showToolBar(getResources().getString(R.string.saturday));
-                btn_saturday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(6);
                 break;
             case R.id.btn_sunday:
                 showToolBar(getResources().getString(R.string.sunday));
-                btn_sunday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                on_off_buttons(7);
                 break;
         }
         fragmentTransaction.commit();
     }
+
+    private void on_off_buttons(int on){
+        btn_monday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_tuesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_wednesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_thursday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_friday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_saturday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+        btn_sunday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+
+        switch (on){
+            case 1:
+                btn_monday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 2:
+                btn_tuesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 3:
+                btn_wednesday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 4:
+                btn_thursday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 5:
+                btn_friday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 6:
+                btn_saturday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            case 7:
+                btn_sunday.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccentChido));
+                break;
+            default:break;
+        }
+
+
+    }
+
 }

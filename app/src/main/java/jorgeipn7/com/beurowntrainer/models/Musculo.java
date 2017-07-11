@@ -14,17 +14,17 @@ public class Musculo extends RealmObject{
     @PrimaryKey
     private int id;
     private int foto;
-    private String nombre;
+    private int nombre;
     private RealmList<Ejercicio> ejercicios;
 
     public Musculo() {
     }
 
-    public Musculo( int foto, String nombre, RealmList<Ejercicio> ejercicios) {
+    public Musculo( int foto, int nombre) {
         this.id = MyAplication.MusculoId.incrementAndGet();
         this.foto = foto;
         this.nombre = nombre;
-        this.ejercicios = ejercicios;
+        this.ejercicios = new RealmList<Ejercicio>();
     }
 
     public int getId() {
@@ -40,11 +40,11 @@ public class Musculo extends RealmObject{
         this.foto = foto;
     }
 
-    public String getNombre() {
+    public int getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
     }
 

@@ -43,7 +43,7 @@
             android:layout_height="0dp"
             android:adjustViewBounds="false"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/deadlift"
+            app:srcCompat="@drawable/pierna_cable_abduction"
             android:padding="10dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"

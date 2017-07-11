@@ -12,13 +12,13 @@ public class Dia extends RealmObject{
 
     @PrimaryKey
     private int id; // Día de la semana  Dom 1-7 Sab
-    private String nombre;
+    private int nombre;
     private RealmList<Rutina> rutinas;
 
     public Dia() {
     }
 
-    public Dia(int id, String nombre) {
+    public Dia(int id, int nombre) {
         this.id = id;
         this.nombre = nombre;
         this.rutinas = new RealmList<Rutina>();
@@ -32,11 +32,11 @@ public class Dia extends RealmObject{
         this.id = id;
     }
 
-    public String getNombre() {
+    public int getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
     }
 

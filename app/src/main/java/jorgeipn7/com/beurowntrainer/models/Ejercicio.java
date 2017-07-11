@@ -15,16 +15,16 @@ public class Ejercicio extends RealmObject{
     private int id;
 
     private int foto;
-    private String nombre;
+    private int nombre;
     private boolean favorito;
     //Clasificación
-    private String utilidad;
-    private String mecanismo;
-    private String tipoFuerza;
+    private int utilidad;
+    private int mecanismo;
+    private int tipoFuerza;
     //Instrucciones
-    private String preparacion;
-    private String ejecucion;
-    private String comentarios;
+    private int preparacion;
+    private int ejecucion;
+    private int comentarios;
     private String urlInstrucciones;
 
 
@@ -32,7 +32,7 @@ public class Ejercicio extends RealmObject{
     public Ejercicio() {
     }
 
-    public Ejercicio(int foto, String nombre, String utilidad, String mecanismo, String tipoFuerza, String preparacion, String ejecucion, String comentarios, String urlInstrucciones) {
+    public Ejercicio(int foto, int nombre, int utilidad, int mecanismo, int tipoFuerza, int preparacion, int ejecucion, int comentarios, String urlInstrucciones) {
         this.id = MyAplication.EjercicioId.incrementAndGet();
         this.foto = foto;
         this.nombre = nombre;
@@ -58,59 +58,59 @@ public class Ejercicio extends RealmObject{
         this.foto = foto;
     }
 
-    public String getNombre() {
+    public int getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
     }
 
-    public String getUtilidad() {
+    public int getUtilidad() {
         return utilidad;
     }
 
-    public void setUtilidad(String utilidad) {
+    public void setUtilidad(int utilidad) {
         this.utilidad = utilidad;
     }
 
-    public String getMecanismo() {
+    public int getMecanismo() {
         return mecanismo;
     }
 
-    public void setMecanismo(String mecanismo) {
+    public void setMecanismo(int mecanismo) {
         this.mecanismo = mecanismo;
     }
 
-    public String getTipoFuerza() {
+    public int getTipoFuerza() {
         return tipoFuerza;
     }
 
-    public void setTipoFuerza(String tipoFuerza) {
+    public void setTipoFuerza(int tipoFuerza) {
         this.tipoFuerza = tipoFuerza;
     }
 
-    public String getPreparacion() {
+    public int getPreparacion() {
         return preparacion;
     }
 
-    public void setPreparacion(String preparacion) {
+    public void setPreparacion(int preparacion) {
         this.preparacion = preparacion;
     }
 
-    public String getEjecucion() {
+    public int getEjecucion() {
         return ejecucion;
     }
 
-    public void setEjecucion(String ejecucion) {
+    public void setEjecucion(int ejecucion) {
         this.ejecucion = ejecucion;
     }
 
-    public String getComentarios() {
+    public int getComentarios() {
         return comentarios;
     }
 
-    public void setComentarios(String comentarios) {
+    public void setComentarios(int comentarios) {
         this.comentarios = comentarios;
     }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="pierna_cable_abduction_nombre">Abducción de pierna (cable)</string>
+    <string name="utilidad_basico">Básico</string>
+    <string name="push">Push</string>
+    <string name="preparacion">Preparación...</string>
+    <string name="ejecucion">Ejecución...</string>
+    <string name="comentarios">Comentarios y Tips...</string>
+    <string name="pierna_smith_kneeling_rear_kick_nombre">Smith machine kneeling rear kick</string>
+    <string name="utilidad_auxiliar">Auxiliar</string>
+    <string name="musculo_pierna">Pierna y Gluteo</string>
+    <string name="btn_editar_rutina_biserie">Agregar Bi-Serie</string>
+    <string name="btn_editar_rutina_serie">Agregar un ejercicio</string>
+</resources>
