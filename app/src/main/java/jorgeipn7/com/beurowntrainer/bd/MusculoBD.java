@@ -25,7 +25,7 @@ public class MusculoBD {
     }
 
 
-
+    //READ
     public Musculo getMusculoById(int id){
         return realm.where(Musculo.class).equalTo("id",id).findFirst();
     }

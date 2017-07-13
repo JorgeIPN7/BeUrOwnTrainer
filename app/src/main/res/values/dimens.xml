@@ -22,6 +22,7 @@
     <dimen name="rutina_boton_margin">7dp</dimen>
     <dimen name="rutina_boton_padding">10dp</dimen>
     <dimen name="text_size_btn_rutina">14sp</dimen>
+    <dimen name="text_size_titulo">16sp</dimen>
 
 
 </resources>

@@ -18,4 +18,7 @@
     <string name="musculo_pierna">Pierna y Gluteo</string>
     <string name="btn_editar_rutina_biserie">Agregar Bi-Serie</string>
     <string name="btn_editar_rutina_serie">Agregar un ejercicio</string>
+    <string name="utilidad_texto">Utilidad:</string>
+    <string name="mecanismo_texto">Mecanismo:</string>
+    <string name="fuerza_texto">Tipo de fuerza:</string>
 </resources>

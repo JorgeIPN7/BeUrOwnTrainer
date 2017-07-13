@@ -66,6 +66,14 @@ public class SplashScreen extends AppCompatActivity {
         //=PIERNA
         ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_cable_abduction, R.string.pierna_cable_abduction_nombre, R.string.utilidad_basico  , R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=pvnR8CDb4BU"));
         ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_smith_kneeling_rear_kick, R.string.pierna_smith_kneeling_rear_kick_nombre, R.string.utilidad_auxiliar  , R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=X_s8qQYZsfo"));
+        ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_dumbbell_pantorrilla_levantamiento_de_un_pie, R.string.pierna_dumbbell_pantorrilla_levantamiento_de_un_pie, R.string.utilidad_basico, R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=eOnsWwbY8OI"));
+        ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_pantorrilla_machine_seated_one_leg_calf_raise, R.string.pierna_pantorrilla_machine_seated_one_leg_calf_raise, R.string.utilidad_auxiliar, R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=kT53w10nosk"));
+
+
+
+
+
+
 
 
 
@@ -75,6 +83,10 @@ public class SplashScreen extends AppCompatActivity {
         //MUSCULO-EJERCICIO
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(1));
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(2));
+        musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(3));
+        musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(4));
+
+
     }
 
     public void guardarPreferencias(){

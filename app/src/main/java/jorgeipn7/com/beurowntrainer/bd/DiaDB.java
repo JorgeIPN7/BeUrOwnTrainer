@@ -24,9 +24,8 @@ public class DiaDB {
         realm.commitTransaction();
     }
 
-
-
-    public Dia getRutinaById(int id){
+    //READ
+    public Dia getDiaById(int id){
         return realm.where(Dia.class).equalTo("id",id).findFirst();
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#22292F</color>
-    <color name="colorPrimaryDark">#1B2023</color>
+    <color name="colorPrimaryDark">#22292F</color>
+    <color name="colorPrimary">#1B2023</color>
     <color name="colorAccent">#009688</color>
     <color name="colorAccentAlpha">#AA009688</color>
 
@@ -14,6 +14,9 @@
     <color name="colorAccent">#009688</color>
     -->
 
+    <color name="colorBlackAlpha">#CCF5F5F5</color>
+
+
 
     <color name="colorPrimaryLight">#F5F5F5</color>
     <color name="colorPrimaryText">#212121</color>
@@ -23,7 +26,7 @@
     <color name="colorDivider">#BDBDBD</color>
 
     <color name="blanco">#FFFFFF</color>
-    <color name="negro">#AA000000</color>
+    <color name="negro">#CC1B2023</color>
     <color name="amarillo">#D7DF01</color>
     <color name="amarillo2">#C4CB00</color>
     <color name="amarillo_alpha">#CCC4CB00</color>

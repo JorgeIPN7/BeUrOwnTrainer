@@ -50,18 +50,42 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="pierna_cable_abduction_nombre">Abducción de pierna (cable)</string>
-    <string name="utilidad_basico">Básico</string>
+
+    <string name="utilidad_basico">Basic</string>
+    <string name="utilidad_auxiliar">Auxiliary</string>
+
     <string name="mecanismo_isolated">Isolated</string>
+    <string name="mecanismo_compound">Compound</string>
+
     <string name="push">Push</string>
+    <string name="pull">Pull</string>
+
     <string name="preparacion">Preparación...</string>
     <string name="ejecucion">Ejecución...</string>
     <string name="comentarios">Comentarios y Tips...</string>
-    <string name="pierna_smith_kneeling_rear_kick_nombre">Smith machine kneeling rear kick</string>
-    <string name="utilidad_auxiliar">Auxiliar</string>
+
+
     <string name="musculo_pierna">Pierna y Gluteo</string>
     <string name="btn_editar_rutina_biserie">Agregar Bi-Serie</string>
     <string name="btn_editar_rutina_serie">Agregar Ejercicio</string>
+    <string name="title_activity_editar_rutina_agregar_ejercicio">EditarRutinaAgregarEjercicio
+    </string>
+    <string name="utilidad_texto">Utilidad:</string>
+    <string name="mecanismo_texto">Mecanismo:</string>
+    <string name="fuerza_texto">Tipo de fuerza:</string>
+
+
+
+
+
+    <string name="pierna_smith_kneeling_rear_kick_nombre">Smith machine kneeling rear kick</string>
+    <string name="pierna_cable_abduction_nombre">Abducción de pierna (cable)</string>
+
+    <!-- Pantorrilla -->
+    <string name="pierna_dumbbell_pantorrilla_levantamiento_de_un_pie">Standing dumbbell one-leg calf raise</string>
+    <string name="pierna_pantorrilla_machine_seated_one_leg_calf_raise">Machine seated one-leg calf raise</string>
+
+
 
 
 </resources>

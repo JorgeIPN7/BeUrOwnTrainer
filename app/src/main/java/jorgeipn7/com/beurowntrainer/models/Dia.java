@@ -47,4 +47,6 @@ public class Dia extends RealmObject{
     public void setRutinas(RealmList<Rutina> rutinas) {
         this.rutinas = rutinas;
     }
+
+
 }

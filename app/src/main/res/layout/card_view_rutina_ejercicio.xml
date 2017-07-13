@@ -38,7 +38,7 @@
 
 
         <ImageView
-            android:id="@+id/iv_cv_ejercicio_foto"
+            android:id="@+id/iv_cv_ejercicio_rutina_foto"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:adjustViewBounds="false"
@@ -52,7 +52,7 @@
             card_view:layout_constraintVertical_bias="0.495" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_titulo"
+            android:id="@+id/tv_cv_ejercicio_rutina_titulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -82,7 +82,7 @@
             card_view:layout_constraintRight_toRightOf="parent" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_utilidad"
+            android:id="@+id/tv_cv_ejercicio_rutina_utilidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -95,7 +95,7 @@
             android:layout_marginStart="4dp" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_utilidad_valor"
+            android:id="@+id/tv_cv_ejercicio_rutina_utilidad_valor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
@@ -105,7 +105,7 @@
             android:textSize="12sp"
             android:textColor="@color/colorSecondaryText"
             android:textStyle="italic"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_utilidad"
+            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_utilidad"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_clasificacion"
             card_view:layout_constraintHorizontal_bias="0.0"
@@ -113,7 +113,7 @@
             android:layout_marginEnd="4dp" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_mecanismo"
+            android:id="@+id/tv_cv_ejercicio_rutina_mecanismo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -122,11 +122,11 @@
             android:textColor="@color/colorPrimaryText"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_utilidad"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_utilidad"
             android:layout_marginStart="4dp" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_mecanismo_valor"
+            android:id="@+id/tv_cv_ejercicio_rutina_mecanismo_valor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
@@ -136,15 +136,15 @@
             android:textSize="12sp"
             android:textColor="@color/colorSecondaryText"
             android:textStyle="italic"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_mecanismo"
+            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_mecanismo"
             card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_utilidad_valor"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_utilidad_valor"
             card_view:layout_constraintHorizontal_bias="0.0"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="4dp" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_fuerza"
+            android:id="@+id/tv_cv_ejercicio_rutina_fuerza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -154,10 +154,10 @@
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             android:layout_marginStart="4dp"
             android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_mecanismo" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_mecanismo" />
 
         <TextView
-            android:id="@+id/tv_cv_ejercicio_fuerza_valor"
+            android:id="@+id/tv_cv_ejercicio_rutina_fuerza_valor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
@@ -168,9 +168,9 @@
             android:textColor="@color/colorSecondaryText"
             android:textStyle="italic"
             card_view:layout_constraintHorizontal_bias="1.0"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_fuerza"
+            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_fuerza"
             card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_mecanismo_valor"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_mecanismo_valor"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="4dp" />
 
@@ -180,7 +180,7 @@
             android:layout_height="1dp"
             android:background="@color/colorDivider"
             android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_titulo"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo"
             android:layout_marginLeft="4dp"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             android:layout_marginRight="0dp"
@@ -198,7 +198,7 @@
             android:background="@color/colorDivider"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_fuerza_valor"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_fuerza_valor"
             android:id="@+id/view2" />
 
 
