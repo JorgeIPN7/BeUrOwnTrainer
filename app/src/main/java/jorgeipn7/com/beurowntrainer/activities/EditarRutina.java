@@ -91,7 +91,7 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_tuesday:
                 showToolBar(getResources().getString(R.string.tuesday));
-                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMartes);
+                //fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMartes);
                 on_off_buttons(2);
                 break;
             case R.id.btn_wednesday:

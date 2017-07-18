@@ -9,6 +9,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
@@ -28,12 +29,14 @@ import io.realm.RealmList;
 import io.realm.RealmResults;
 import jorgeipn7.com.beurowntrainer.R;
 import jorgeipn7.com.beurowntrainer.adapters.AdapterEjercicio;
+import jorgeipn7.com.beurowntrainer.adapters.AdapterMusculo;
 import jorgeipn7.com.beurowntrainer.bd.DiaDB;
 import jorgeipn7.com.beurowntrainer.bd.EjercicioBD;
 import jorgeipn7.com.beurowntrainer.bd.MusculoBD;
 import jorgeipn7.com.beurowntrainer.bd.RutinaBD;
 import jorgeipn7.com.beurowntrainer.models.Dia;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
+import jorgeipn7.com.beurowntrainer.models.Musculo;
 import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 
@@ -53,7 +56,11 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-
+    //Recycler Lista de Musculos
+    RecyclerView recyclerViewMusculo;
+    RecyclerView.LayoutManager layoutManagerMusculo;
+    RecyclerView.Adapter adapterMusculo;
+    //------
     Realm realm;
     MusculoBD musculoBD;
     DiaDB diaDB;
@@ -62,6 +69,7 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
     EjercicioBD ejercicioBD;
     private RealmList<Ejercicio> ejercicios;
     private RealmResults<Ejercicio> allEjercicios;
+    private RealmResults<Musculo> allMusculos;
     //Dialog
     Dialog dialogAgregarNewEjercicio;
     ImageView iv_dialog_ejercicio_agregar;
@@ -109,32 +117,36 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
 
         showToolbar("Agregar Ejercicio", true);
 
-        coordinator_layout_agregar_ejercicio= (CoordinatorLayout)findViewById(R.id.coordinator_layout_agregar_ejercicio);
-        REQUEST_CODE= getIntent().getIntExtra("dia", 0);
-        if(REQUEST_CODE == 0)finish();
+        coordinator_layout_agregar_ejercicio = (CoordinatorLayout) findViewById(R.id.coordinator_layout_agregar_ejercicio);
+        REQUEST_CODE = getIntent().getIntExtra("dia", 0);
+        if (REQUEST_CODE == 0) finish();
 
-        realm= Realm.getDefaultInstance();
-        musculoBD= new MusculoBD(realm);
-        ejercicioBD= new EjercicioBD(realm);
-        diaDB= new DiaDB(realm);
-        rutinaBD= new RutinaBD(realm);
-        dia= diaDB.getDiaById(REQUEST_CODE);
+        realm = Realm.getDefaultInstance();
+        musculoBD = new MusculoBD(realm);
+        ejercicioBD = new EjercicioBD(realm);
+        diaDB = new DiaDB(realm);
+        rutinaBD = new RutinaBD(realm);
+        dia = diaDB.getDiaById(REQUEST_CODE);
 
         dialogo();
         dialogoInfo();
-        /*
-        * Estoy llamndo a toedos los musculos de pierna, falta agregar el filtro y miostrar por musculo o mostrar todos
-        * */
-        //ejercicios= musculoBD.getAllEjerciciosByMusculo(musculoBD.getMusculoById(1));
-            allEjercicios= ejercicioBD.getAllEjercicios();
+
+        allMusculos = musculoBD.getAllMusculos();
+        allEjercicios = ejercicioBD.getAllEjercicios();
 
 
         //RecyclerView
-        recyclerView= (RecyclerView)findViewById(R.id.recyclerview_agregar_ejercicios);
-        layoutManager= new GridLayoutManager(getApplicationContext(), 2);
-                            //LinearLayoutManager(getApplicationContext());
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_agregar_ejercicios);
+        recyclerViewMusculo = (RecyclerView) findViewById(R.id.recyclerview_ejercicios_dia_rutina_musculos);
+
+        layoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        //LinearLayoutManager(getApplicationContext());
+        layoutManagerMusculo = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, true);
+
         recyclerView.setLayoutManager(layoutManager);
-        adapter= new AdapterEjercicio(R.layout.card_view_ejercicio, this, allEjercicios, new AdapterEjercicio.OnItemClickListener() {
+        recyclerViewMusculo.setLayoutManager(layoutManagerMusculo);
+
+        adapter = new AdapterEjercicio(R.layout.card_view_ejercicio, this, allEjercicios, new AdapterEjercicio.OnItemClickListener() {
             @Override
             public void onItemClick(final Ejercicio ejercicio, int position) {
 
@@ -152,7 +164,7 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                 go_to_video.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse( ejercicio.getUrlInstrucciones() )));
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ejercicio.getUrlInstrucciones())));
                     }
                 });
 
@@ -163,13 +175,12 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                         iv_dialog_ejercicio_agregar.setImageResource(ejercicio.getFoto());
                         dialogAgregarNewEjercicio.show();
 
-                        ejercicioAUX= ejercicio;
+                        ejercicioAUX = ejercicio;
                     }
                 });
 
 
                 dialogoInformacion.show();
-
 
 
             }
@@ -181,13 +192,87 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                 iv_dialog_ejercicio_agregar.setImageResource(ejercicio.getFoto());
                 dialogAgregarNewEjercicio.show();
 
-                ejercicioAUX= ejercicio;
+                ejercicioAUX = ejercicio;
 
             }
         });
         recyclerView.setAdapter(adapter);
 
+
+        adapterMusculo = new AdapterMusculo(this, R.layout.card_view_seleccionar_musculo, allMusculos, new AdapterMusculo.OnItemClickListener() {
+            @Override
+            public void onItemClick(final Musculo musculo, int position) {
+
+                setRecyclerViewEjercicios(musculo);
+
+
+            }
+        });
+        recyclerViewMusculo.setAdapter(adapterMusculo);
+
     }
+
+
+
+    private void setRecyclerViewEjercicios(Musculo musculo){
+        ejercicios= musculoBD.getAllEjerciciosByMusculo(musculo);
+
+        adapter = new AdapterEjercicio(R.layout.card_view_ejercicio, this, ejercicios, new AdapterEjercicio.OnItemClickListener() {
+            @Override
+            public void onItemClick(final Ejercicio ejercicio, int position) {
+
+
+                //dialogoInformacion.setTitle(getResources().getString(ejercicio.getNombre()));
+                iv_dialog_ejercicio_info.setImageResource(ejercicio.getFoto());
+                tv_d_ejercicio_informacion_titulo.setText(getResources().getString(ejercicio.getNombre()));
+                tv_d_ejercicio_informacion_utilidad.setText(getResources().getString(ejercicio.getUtilidad()));
+                tv_d_ejercicio_informacion_mecanismo.setText(getResources().getString(ejercicio.getMecanismo()));
+                tv_d_ejercicio_informacion_fuerza.setText(getResources().getString(ejercicio.getTipoFuerza()));
+                tv_d_ejercicio_informacion_preparacion.setText(getResources().getString(ejercicio.getPreparacion()));
+                tv_d_ejercicio_informacion_ejecucion.setText(getResources().getString(ejercicio.getEjecucion()));
+                tv_d_ejercicio_informacion_comentarios.setText(getResources().getString(ejercicio.getComentarios()));
+
+                go_to_video.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ejercicio.getUrlInstrucciones())));
+                    }
+                });
+
+                btn_agregar_ejercicio_info.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialogAgregarNewEjercicio.setTitle(getResources().getString(ejercicio.getNombre()));
+                        iv_dialog_ejercicio_agregar.setImageResource(ejercicio.getFoto());
+                        dialogAgregarNewEjercicio.show();
+
+                        ejercicioAUX = ejercicio;
+                    }
+                });
+
+
+                dialogoInformacion.show();
+
+
+            }
+        }, new AdapterEjercicio.OnItemClickListener() {
+            @Override
+            public void onItemClick(final Ejercicio ejercicio, int position) {
+
+                dialogAgregarNewEjercicio.setTitle(getResources().getString(ejercicio.getNombre()));
+                iv_dialog_ejercicio_agregar.setImageResource(ejercicio.getFoto());
+                dialogAgregarNewEjercicio.show();
+
+                ejercicioAUX = ejercicio;
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
+    }
+
+
+
+
 
 
     private void addEjercicio(Ejercicio ejercicio){
@@ -323,13 +408,6 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
 
     private int getREQUEST_CODE(int REQUEST_CODE){
         switch (REQUEST_CODE){

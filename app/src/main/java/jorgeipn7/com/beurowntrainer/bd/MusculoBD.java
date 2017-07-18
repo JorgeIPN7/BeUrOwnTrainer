@@ -2,6 +2,7 @@ package jorgeipn7.com.beurowntrainer.bd;
 
 import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
 import jorgeipn7.com.beurowntrainer.models.Musculo;
 
@@ -26,6 +27,10 @@ public class MusculoBD {
 
 
     //READ
+    public RealmResults<Musculo> getAllMusculos(){
+        return realm.where(Musculo.class).findAll();
+    }
+
     public Musculo getMusculoById(int id){
         return realm.where(Musculo.class).equalTo("id",id).findFirst();
     }
