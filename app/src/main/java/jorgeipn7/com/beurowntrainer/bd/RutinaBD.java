@@ -2,6 +2,7 @@ package jorgeipn7.com.beurowntrainer.bd;
 
 import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.Sort;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
 import jorgeipn7.com.beurowntrainer.models.Rutina;
 
@@ -28,9 +29,13 @@ public class RutinaBD {
         return realm.where(Rutina.class).equalTo("id", id).findFirst();
     }
 
+    public Rutina getLastIdInserted(){
+        return realm.where(Rutina.class).findAllSorted("id", Sort.DESCENDING).first();
+    }
+
 
     //UPDATE
-    public void updateEjercicioRutina(Rutina rutina, Ejercicio ejercicio){
+    public void updateRutinaAddEjercicio(Rutina rutina, Ejercicio ejercicio){
         realm.beginTransaction();
         rutina.getEjercicios().add(ejercicio);
         realm.commitTransaction();

@@ -25,12 +25,15 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
         int layout;
         Activity activity;
         OnItemClickListener listener;
+        OnItemClickListener listenerFoto;
 
-        public AdapterEjercicio(int layout, Activity activity, List<Ejercicio> lista, OnItemClickListener listener) {
+
+    public AdapterEjercicio(int layout, Activity activity, List<Ejercicio> lista, OnItemClickListener listener, OnItemClickListener listenerFoto) {
             this.lista = lista;
             this.layout = layout;
             this.activity = activity;
             this.listener = listener;
+            this.listenerFoto = listenerFoto;
         }
 
 
@@ -60,7 +63,7 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
 //            itemView.setOnCreateContextMenuListener(this);
             }
 
-            public void bind(final Ejercicio ejercicio, final OnItemClickListener listener) {
+            public void bind(final Ejercicio ejercicio, final OnItemClickListener listener, final OnItemClickListener listenerFoto ) {
 
                 /*** Ejercicio
                  private int id;
@@ -93,11 +96,17 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
                 */
 
 
+                iv_cv_ejercicio_informacion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemClick(ejercicio, getAdapterPosition());
+                    }
+                });
 
                 iv_cv_ejercicio_foto.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(ejercicio, getAdapterPosition());
+                        listenerFoto.onItemClick(ejercicio, getAdapterPosition());
                     }
                 });
 
@@ -116,7 +125,7 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(lista.get(position), listener);
+        holder.bind(lista.get(position), listener, listenerFoto);
     }
 
     @Override

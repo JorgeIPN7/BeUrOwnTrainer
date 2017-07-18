@@ -56,7 +56,7 @@ public class AdapterRutina extends RecyclerView.Adapter<AdapterRutina.ViewHolder
             tv_cv_ejercicio_utilidad_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_rutina_utilidad_valor);
             tv_cv_ejercicio_mecanismo_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_rutina_mecanismo_valor);
             tv_cv_ejercicio_fuerza_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_rutina_fuerza_valor);
-            tv_cv_ejercicio_num_series_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_num_series);
+            tv_cv_ejercicio_num_series_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_num_series_valor);
             tv_cv_ejercicio_pesot_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_pesot_valor);
             tv_cv_ejercicio_descanso_serie_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_descanso_serie_valor);
             tv_cv_ejercicio_descanso_final_valor = (TextView) v.findViewById(R.id.tv_cv_ejercicio_descanso_final_valor);

@@ -1,6 +1,8 @@
 package jorgeipn7.com.beurowntrainer.bd;
 
 import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
 
 /**
@@ -25,5 +27,11 @@ public class EjercicioBD {
     public Ejercicio getEjercicioById(int id){
         return realm.where(Ejercicio.class).equalTo("id", id).findFirst();
     }
+
+    public RealmResults<Ejercicio> getAllEjercicios(){
+        return realm.where(Ejercicio.class).findAll();
+    }
+
+
 
 }

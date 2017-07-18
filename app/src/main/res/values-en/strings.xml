@@ -21,4 +21,18 @@
     <string name="utilidad_texto">Utilidad:</string>
     <string name="mecanismo_texto">Mecanismo:</string>
     <string name="fuerza_texto">Tipo de fuerza:</string>
+    <string name="dialogo_agregar_ejercicio_num_series">Número de series</string>
+    <string name="dialogo_agregar_ejercicio_num_repeticiones">Número de repeticiones</string>
+    <string name="dialogo_agregar_ejercicio_peso">Peso (Kg)</string>
+    <string name="dialogo_agregar_ejercicio_descanso_serie">Descanso (Seg)</string>
+    <string name="dialogo_agregar_ejercicio_descanso_final">Descanso al finalizar (Seg)</string>
+    <string name="preparacion_texto">Preparación:</string>
+    <string name="ejecucion_texto">Ejecución:</string>
+    <string name="comentarios_texto">Comentarios y Consejos:</string>
+    <string name="nota_video">Presione aquí para ver un vídeo :)</string>
+    <string name="espalda_dumbbell_bent_over_two_arm">Bent over two arm dumbbell row</string>
+    <string name="preparacion_espalda_dumbbell_bent_over_two_arm">Kneel over side of bench by placing knee and hand of supporting arm on bench. Position foot of opposite leg slightly back to side. Grasp dumbbell from floor.</string>
+    <string name="ejecucion_espalda_dumbbell_bent_over_two_arm">Pull dumbbell to up to side until it makes contact with ribs or until upper arm is just beyond horizontal. Return until arm is extended and shoulder is stretched downward. Repeat and continue with opposite arm.</string>
+    <string name="comentarios_espalda_dumbbell_bent_over_two_arm">Allow scapula to articulate but do not rotate torso in effort to throw weight up. Torso should be close to horizontal. Positioning supporting knee and/or arm slightly forward or back will allow for proper levelling of torso. Torso may be positioned lower to allow for heavier dumbbell to make contact with floor, if desired.</string>
+    <string name="musculo_espalda">Espalda</string>
 </resources>

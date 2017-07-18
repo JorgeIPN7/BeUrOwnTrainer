@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio"
+    android:background="@color/negro"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/nota"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#A0FF0000"
+            android:padding="7dp"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/go_to_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".8"
+                app:srcCompat="@drawable/ic_youtube"
+                tools:ignore="ContentDescription,RtlHardcoded" />
+
+            <TextView
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/nota_video"
+                android:textColor="@color/blanco"
+                android:textSize="12sp"
+                tools:context="modelo.TecnicaDetailFragment" />
+
+            <CheckBox
+                android:id="@+id/cb_dialogo_info_ejercicio_favorito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:button="@drawable/custom_checkbox_heart"
+                android:elevation="4dp"
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_dialog_ejercicio_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/pierna_dumbbell_pantorrilla_levantamiento_de_un_pie"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_d_ejercicio_informacion_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pierna_dumbbell_pantorrilla_levantamiento_de_un_pie"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:layout_margin="7dp"
+            android:textStyle="bold"
+            />
+
+        <ScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <LinearLayout
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            <TableLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/negro"
+                android:layout_marginBottom="10dp"
+                >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Clasificación"
+                        android:textColor="@color/colorAccentChido"
+                        android:textStyle="italic"
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/utilidad_texto"
+                        android:textColor="@color/colorAccentChidoAlpha"
+                        android:gravity="right"
+                        android:paddingRight="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_d_ejercicio_informacion_utilidad"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/utilidad_basico"
+                        android:textColor="@color/blanco"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/mecanismo_texto"
+                        android:textColor="@color/colorAccentChidoAlpha"
+                        android:gravity="right"
+                        android:paddingRight="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_d_ejercicio_informacion_mecanismo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/mecanismo_isolated"
+                        android:textColor="@color/blanco"
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/fuerza_texto"
+                        android:textColor="@color/colorAccentChidoAlpha"
+                        android:gravity="right"
+                        android:paddingRight="5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_d_ejercicio_informacion_fuerza"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/push"
+                        android:textColor="@color/blanco"
+                        />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/negro"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Descripción"
+                            android:textColor="@color/colorAccentChido"
+                            android:textStyle="italic"
+                            />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/preparacion_texto"
+                            android:textColor="@color/colorAccentChidoAlpha"
+                            android:gravity="left"
+                            android:paddingRight="5dp"
+                            />
+                    </TableRow>
+                    <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/tv_d_ejercicio_informacion_preparacion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tudaloren insupu tuda loren insupu tuda loren insupu tudaloren insupu tudaloren dda"
+                        android:textColor="@color/blanco"
+                        android:textSize="10sp"
+                        />
+                </TableRow>
+
+                    <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/ejecucion_texto"
+                        android:textColor="@color/colorAccentChidoAlpha"
+                        android:gravity="left"
+                        android:paddingRight="5dp"
+                        />
+                </TableRow>
+                    <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:id="@+id/tv_d_ejercicio_informacion_ejecucion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tudaloren insupu tuda loren insupu tuda loren insupu tudaloren insupu tudaloren dda"
+                        android:textColor="@color/blanco"
+                        android:textSize="10sp"
+                        />
+                </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/comentarios_texto"
+                            android:textColor="@color/colorAccentChidoAlpha"
+                            android:gravity="left"
+                            android:paddingRight="5dp"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:id="@+id/tv_d_ejercicio_informacion_comentarios"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tuda loren insupu tudaloren insupu tuda loren insupu tuda loren insupu tudaloren insupu tudaloren dda"
+                            android:textColor="@color/blanco"
+                            android:textSize="10sp"
+                            />
+                    </TableRow>
+
+
+                </TableLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Salir"
+                android:layout_weight="1"
+                android:id="@+id/btn_salir_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPP"
+                android:layout_marginRight="2dp"
+                />
+
+            <Button
+                android:text="Agregar"
+                android:layout_weight="1"
+                android:id="@+id/btn_agregar_ejercicio_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPP"
+                android:layout_marginLeft="2dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

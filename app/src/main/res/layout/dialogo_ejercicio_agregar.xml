@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio"
+    android:background="@color/negro"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_dialog_ejercicio_agregar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/pierna_dumbbell_pantorrilla_levantamiento_de_un_pie"
+            android:padding="10dp"
+            />
+
+
+        <ScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <LinearLayout
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:shadowColor="@color/colorAccent"
+                android:textColorLink="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_num_series"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dialogo_agregar_ejercicio_num_series"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:shadowColor="@color/colorAccent"
+                android:textColorLink="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_num_repeticiones"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dialogo_agregar_ejercicio_num_repeticiones"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:shadowColor="@color/colorAccent"
+                android:textColorLink="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_peso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dialogo_agregar_ejercicio_peso"
+                    android:inputType="number"
+                    android:textSize="14sp"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:shadowColor="@color/colorAccent"
+                android:textColorLink="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_descanso_serie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dialogo_agregar_ejercicio_descanso_serie"
+                    android:inputType="number"
+                    android:textSize="14sp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:shadowColor="@color/colorAccent"
+                android:textColorLink="@color/colorAccent"
+                android:textColorHighlight="@color/colorAccent"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_descanso_final"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dialogo_agregar_ejercicio_descanso_final"
+                    android:inputType="number"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Salir"
+                android:layout_weight="1"
+                android:id="@+id/btn_salir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPP"
+                android:layout_marginRight="2dp"
+                />
+
+            <Button
+                android:text="Agregar"
+                android:layout_weight="1"
+                android:id="@+id/btn_agregar_ejercicio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/ButtonPP"
+                android:layout_marginLeft="2dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -68,23 +68,22 @@ public class SplashScreen extends AppCompatActivity {
         ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_smith_kneeling_rear_kick, R.string.pierna_smith_kneeling_rear_kick_nombre, R.string.utilidad_auxiliar  , R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=X_s8qQYZsfo"));
         ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_dumbbell_pantorrilla_levantamiento_de_un_pie, R.string.pierna_dumbbell_pantorrilla_levantamiento_de_un_pie, R.string.utilidad_basico, R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=eOnsWwbY8OI"));
         ejercicioBD.crearNuevo(new Ejercicio(R.drawable.pierna_pantorrilla_machine_seated_one_leg_calf_raise, R.string.pierna_pantorrilla_machine_seated_one_leg_calf_raise, R.string.utilidad_auxiliar, R.string.mecanismo_isolated, R.string.push, R.string.preparacion, R.string.ejecucion, R.string.comentarios, "https://www.youtube.com/watch?v=kT53w10nosk"));
-
-
-
-
-
-
-
+        //=ESPALDA
+        ejercicioBD.crearNuevo(new Ejercicio(R.drawable.espalda_dumbbell_bent_over_two_arm, R.string.espalda_dumbbell_bent_over_two_arm, R.string.utilidad_basico, R.string.mecanismo_compound, R.string.pull, R.string.preparacion_espalda_dumbbell_bent_over_two_arm, R.string.ejecucion_espalda_dumbbell_bent_over_two_arm, R.string.comentarios_espalda_dumbbell_bent_over_two_arm, "https://www.youtube.com/watch?v=--gDUDFKx6Q"));
 
 
         //MUSCULOS
         musculoBD.crearNuevo(new Musculo(R.drawable.pierna, R.string.musculo_pierna));
+        musculoBD.crearNuevo(new Musculo(R.drawable.espalda, R.string.musculo_espalda));
+
 
         //MUSCULO-EJERCICIO
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(1));
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(2));
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(3));
         musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(1), ejercicioBD.getEjercicioById(4));
+        //--
+        musculoBD.updateMusculoAddRutina(musculoBD.getMusculoById(2), ejercicioBD.getEjercicioById(5));
 
 
     }

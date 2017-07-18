@@ -126,4 +126,21 @@ public class Rutina extends RealmObject{
     public void setEjercicios(RealmList<Ejercicio> ejercicios) {
         this.ejercicios = ejercicios;
     }
+
+    @Override
+    public String toString() {
+        return "Rutina{" +
+                "id=" + id +
+                ", series1=" + series1 +
+                ", series2=" + series2 +
+                ", repeticiones1=" + repeticiones1 +
+                ", repeticiones2=" + repeticiones2 +
+                ", peso1=" + peso1 +
+                ", peso2=" + peso2 +
+                ", descansoSerie=" + descansoSerie +
+                ", descansoFinal=" + descansoFinal +
+                ", descansoBiSerie=" + descansoBiSerie +
+                ", ejercicios=" + ejercicios +
+                '}';
+    }
 }

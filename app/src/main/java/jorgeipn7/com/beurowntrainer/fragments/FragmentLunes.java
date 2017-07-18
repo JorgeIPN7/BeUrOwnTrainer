@@ -122,17 +122,11 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-
             if(requestCode == REQUEST_CODE && resultCode== REQUEST_CODE){
-
-                if(data.hasExtra("nombre")){
-                    Toast.makeText(getContext(), data.getStringExtra("nombre"), Toast.LENGTH_LONG).show();
-                    Log.d("result", "valor: " + data.getStringExtra("nombre"));
-
+                Log.d("insert", "FragmentLunes: notifyDataSetChanged");
+                adapter.notifyDataSetChanged();
             }
-
-        }
-}
+    }
 
 
 

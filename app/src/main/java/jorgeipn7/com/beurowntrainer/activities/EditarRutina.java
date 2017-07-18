@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import jorgeipn7.com.beurowntrainer.R;
 import jorgeipn7.com.beurowntrainer.fragments.FragmentLunes;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentMartes;
 
 public class EditarRutina extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +25,7 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
     btn_sunday;
 
     FragmentLunes fragmentLunes;
+    FragmentMartes fragmentMartes;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
@@ -62,6 +64,7 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
         btn_sunday.setOnClickListener(this);
 
         fragmentLunes = new FragmentLunes();
+        fragmentMartes = new FragmentMartes();
 
     }
 
@@ -88,6 +91,7 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_tuesday:
                 showToolBar(getResources().getString(R.string.tuesday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMartes);
                 on_off_buttons(2);
                 break;
             case R.id.btn_wednesday:
