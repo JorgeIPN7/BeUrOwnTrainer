@@ -18,6 +18,10 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="ButtonPP" parent="Theme.AppCompat.Light">
         <item name="colorButtonNormal">@color/colorAccentAlpha</item>
         <item name="colorControlHighlight">@color/colorAccent</item>

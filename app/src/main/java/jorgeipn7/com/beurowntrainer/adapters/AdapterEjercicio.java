@@ -2,13 +2,13 @@ package jorgeipn7.com.beurowntrainer.adapters;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,14 +26,16 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
         Activity activity;
         OnItemClickListener listener;
         OnItemClickListener listenerFoto;
+        OnItemClickListener listenerFav;
 
 
-    public AdapterEjercicio(int layout, Activity activity, List<Ejercicio> lista, OnItemClickListener listener, OnItemClickListener listenerFoto) {
+    public AdapterEjercicio(int layout, Activity activity, List<Ejercicio> lista, OnItemClickListener listener, OnItemClickListener listenerFoto, OnItemClickListener listenerFav) {
             this.lista = lista;
             this.layout = layout;
             this.activity = activity;
             this.listener = listener;
             this.listenerFoto = listenerFoto;
+            this.listenerFav= listenerFav;
         }
 
 
@@ -63,7 +65,7 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
 //            itemView.setOnCreateContextMenuListener(this);
             }
 
-            public void bind(final Ejercicio ejercicio, final OnItemClickListener listener, final OnItemClickListener listenerFoto ) {
+            public void bind(final Ejercicio ejercicio, final OnItemClickListener listener, final OnItemClickListener listenerFoto, final OnItemClickListener listenerFav ) {
 
                 /*** Ejercicio
                  private int id;
@@ -89,11 +91,18 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
                 tv_cv_ejercicio_mecanismo.setText(ejercicio.getMecanismo());
                 tv_cv_ejercicio_fuerza.setText(ejercicio.getTipoFuerza());
 
-                /*
-                cb_cv_ejercicio_favorito.setOnClickListener(this);
-                iv_cv_ejercicio_informacion.setOnClickListener(this);
-                iv_cv_ejercicio_foto.setOnClickListener(this);
-                */
+
+                cb_cv_ejercicio_favorito.setChecked(ejercicio.isFavorito());
+                cb_cv_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Log.d("CheckBoxI", "isChecked->" + cb_cv_ejercicio_favorito.isChecked()  );
+                        Log.d("CheckBoxE", "isFavorito->" + ejercicio.isFavorito()  );
+
+                        listenerFav.onItemClick(ejercicio, getAdapterPosition());
+                    }
+                });
 
 
                 iv_cv_ejercicio_informacion.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +134,7 @@ public class AdapterEjercicio extends RecyclerView.Adapter<AdapterEjercicio.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(lista.get(position), listener, listenerFoto);
+        holder.bind(lista.get(position), listener, listenerFoto, listenerFav);
     }
 
     @Override

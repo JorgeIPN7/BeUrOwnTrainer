@@ -22,8 +22,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.regex.Pattern;
-
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
@@ -104,7 +102,9 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
             descansoFinal,
             descansoBiSerie;
     Ejercicio ejercicioAUX;
-
+    //Favoritos
+    Button btn_ver_favoritos;
+    boolean FLAG_FAVORITOS;
 
 
 
@@ -146,7 +146,54 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerViewMusculo.setLayoutManager(layoutManagerMusculo);
 
-        adapter = new AdapterEjercicio(R.layout.card_view_ejercicio, this, allEjercicios, new AdapterEjercicio.OnItemClickListener() {
+
+        setRecyclerViewAllEjercicios(allEjercicios);
+
+
+        adapterMusculo = new AdapterMusculo(this, R.layout.card_view_seleccionar_musculo, allMusculos, new AdapterMusculo.OnItemClickListener() {
+            @Override
+            public void onItemClick(final Musculo musculo, int position) {
+
+
+
+
+                ejercicios= musculoBD.getAllEjerciciosByMusculo(musculo);
+                setRecyclerViewEjercicios(ejercicios);
+
+
+            }
+        });
+        recyclerViewMusculo.setAdapter(adapterMusculo);
+
+
+        //Ver Favoritos
+        FLAG_FAVORITOS=false;
+        btn_ver_favoritos= (Button) findViewById(R.id.btn_ver_favoritos);
+        btn_ver_favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Log.d("btn_fav", "FLAG: " +  FLAG_FAVORITOS);
+                if(FLAG_FAVORITOS == false) {
+                    FLAG_FAVORITOS = true;
+                    setRecyclerViewAllEjercicios(ejercicioBD.getEjerciciosFavoritos());
+                }
+                else {
+                    FLAG_FAVORITOS= false;
+                    setRecyclerViewAllEjercicios(allEjercicios);
+                }
+
+            }
+        });
+
+
+    }
+
+
+
+    private void setRecyclerViewAllEjercicios(RealmResults<Ejercicio> AllEjercicios){
+
+        adapter = new AdapterEjercicio(R.layout.card_view_ejercicio, this, AllEjercicios, new AdapterEjercicio.OnItemClickListener() {
             @Override
             public void onItemClick(final Ejercicio ejercicio, int position) {
 
@@ -179,7 +226,19 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                     }
                 });
 
+                cb_dialogo_info_ejercicio_favorito.setChecked(ejercicio.isFavorito());
+                cb_dialogo_info_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
+                        if(ejercicio.isFavorito() == false)
+                            ejercicioBD.updateEjercicioFavortito( ejercicio, true );
+                        else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                        adapter.notifyDataSetChanged();
+                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
 
+                    }
+                });
                 dialogoInformacion.show();
 
 
@@ -195,27 +254,23 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                 ejercicioAUX = ejercicio;
 
             }
-        });
-        recyclerView.setAdapter(adapter);
-
-
-        adapterMusculo = new AdapterMusculo(this, R.layout.card_view_seleccionar_musculo, allMusculos, new AdapterMusculo.OnItemClickListener() {
+        }, new AdapterEjercicio.OnItemClickListener() {
             @Override
-            public void onItemClick(final Musculo musculo, int position) {
+            public void onItemClick(Ejercicio ejercicio, int position) {
 
-                setRecyclerViewEjercicios(musculo);
-
+                Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
+                if(ejercicio.isFavorito() == false)
+                    ejercicioBD.updateEjercicioFavortito( ejercicio, true );
+                else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                adapter.notifyDataSetChanged();
+                Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
 
             }
         });
-        recyclerViewMusculo.setAdapter(adapterMusculo);
-
+        recyclerView.setAdapter(adapter);
     }
 
-
-
-    private void setRecyclerViewEjercicios(Musculo musculo){
-        ejercicios= musculoBD.getAllEjerciciosByMusculo(musculo);
+    private void setRecyclerViewEjercicios(RealmList<Ejercicio> ejercicios){
 
         adapter = new AdapterEjercicio(R.layout.card_view_ejercicio, this, ejercicios, new AdapterEjercicio.OnItemClickListener() {
             @Override
@@ -251,6 +306,18 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                 });
 
 
+                cb_dialogo_info_ejercicio_favorito.setChecked(ejercicio.isFavorito());
+                cb_dialogo_info_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
+                        if(ejercicio.isFavorito() == false)
+                            ejercicioBD.updateEjercicioFavortito( ejercicio, true );
+                        else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
+
+                    }
+                });
                 dialogoInformacion.show();
 
 
@@ -264,6 +331,18 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
                 dialogAgregarNewEjercicio.show();
 
                 ejercicioAUX = ejercicio;
+
+            }
+        }, new AdapterEjercicio.OnItemClickListener() {
+            @Override
+            public void onItemClick(Ejercicio ejercicio, int position) {
+
+                Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
+                if(ejercicio.isFavorito() == false)
+                    ejercicioBD.updateEjercicioFavortito( ejercicio, true );
+                else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                adapter.notifyDataSetChanged();
+                Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
 
             }
         });
@@ -379,7 +458,6 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
 
     private void dialogoInfo(){
 
-        // CheckBox cb_dialogo_info_ejercicio_favorito;
         dialogoInformacion = new Dialog(this,android.R.style.Theme_DeviceDefault_Dialog);
         dialogoInformacion.setContentView(R.layout.dialogo_ejercicio_informacion);
 
@@ -397,6 +475,8 @@ public class EditarRutinaAgregarEjercicio extends AppCompatActivity {
 
         btn_salir_info=(Button)dialogoInformacion.findViewById(R.id.btn_salir_info);
         btn_agregar_ejercicio_info=(Button)dialogoInformacion.findViewById(R.id.btn_agregar_ejercicio_info);
+
+        cb_dialogo_info_ejercicio_favorito= (CheckBox)dialogoInformacion.findViewById(R.id.cb_dialogo_info_ejercicio_favorito);
 
 
         btn_salir_info.setOnClickListener(new View.OnClickListener() {

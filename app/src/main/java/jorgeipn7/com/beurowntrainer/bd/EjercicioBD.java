@@ -32,6 +32,16 @@ public class EjercicioBD {
         return realm.where(Ejercicio.class).findAll();
     }
 
+    public RealmResults<Ejercicio> getEjerciciosFavoritos(){
+        return realm.where(Ejercicio.class).equalTo("favorito", true).findAll();
+    }
+
+    //UPDATE
+    public void updateEjercicioFavortito(Ejercicio ejercicio, boolean flag){
+        realm.beginTransaction();
+            ejercicio.setFavorito(flag);
+        realm.commitTransaction();
+    }
 
 
 }
