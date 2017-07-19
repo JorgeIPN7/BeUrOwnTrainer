@@ -26,12 +26,16 @@ public class AdapterRutina extends RecyclerView.Adapter<AdapterRutina.ViewHolder
     int layout;
     Activity activity;
     OnItemClickListener listener;
+    OnItemClickListener listenerBorrar;
+    OnItemClickListener listenerEditar;
 
-    public AdapterRutina(int layout, Activity activity, List<Rutina> lista, OnItemClickListener listener) {
+    public AdapterRutina(int layout, Activity activity, List<Rutina> lista, OnItemClickListener listener, OnItemClickListener listenerBorrar, OnItemClickListener listenerEditar) {
         this.lista = lista;
         this.layout = layout;
         this.activity = activity;
         this.listener = listener;
+        this.listenerBorrar = listenerBorrar;
+        this.listenerEditar = listenerEditar;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -67,7 +71,7 @@ public class AdapterRutina extends RecyclerView.Adapter<AdapterRutina.ViewHolder
 //            itemView.setOnCreateContextMenuListener(this);
         }
 
-        public void bind(final Rutina rutina, final OnItemClickListener listener) {
+        public void bind(final Rutina rutina, final OnItemClickListener listener, final OnItemClickListener listenerBorrar, final OnItemClickListener listenerEditar) {
 
             /*** Rutina
              private int series1;
@@ -106,6 +110,20 @@ public class AdapterRutina extends RecyclerView.Adapter<AdapterRutina.ViewHolder
 
             }
 
+            iv_cv_ejercicio_borrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listenerBorrar.onItemClick(rutina, getAdapterPosition());
+                }
+            });
+
+            iv_cv_ejercicio_editar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listenerEditar.onItemClick(rutina, getAdapterPosition());
+                }
+            });
+
             iv_cv_ejercicio_foto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -125,7 +143,7 @@ public class AdapterRutina extends RecyclerView.Adapter<AdapterRutina.ViewHolder
 
     @Override
     public void onBindViewHolder(AdapterRutina.ViewHolder holder, int position) {
-        holder.bind(lista.get(position), listener);
+        holder.bind(lista.get(position), listener, listenerBorrar, listenerEditar);
     }
 
     @Override
