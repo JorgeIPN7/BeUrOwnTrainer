@@ -22,14 +22,12 @@
         android:padding="5dp"
         >
 
-
-
         <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/guideline20"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.35"
+            app:layout_constraintGuide_percent="0.4"
             tools:layout_editor_absoluteY="142dp"
             tools:layout_editor_absoluteX="141dp" />
 
@@ -56,11 +54,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="4dp"
+            android:padding="2dp"
             android:text="Barbell Bench Press"
             android:textAlignment="center"
             android:textColor="@color/colorAccentChido"
-            android:textSize="16sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
@@ -72,7 +70,7 @@
             android:layout_height="wrap_content"
             android:text="Clasificación:"
             android:textColor="@color/colorAccentChidoAlpha"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold"
             android:layout_marginTop="0dp"
             card_view:layout_constraintTop_toBottomOf="@+id/view"
@@ -88,7 +86,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:text="Utilidad:"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:textColor="@color/colorPrimaryText"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_clasificacion"
@@ -102,7 +100,7 @@
             android:layout_marginRight="4dp"
             android:layout_marginTop="0dp"
             android:text="Basic"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:textColor="@color/colorSecondaryText"
             android:textStyle="italic"
             card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_utilidad"
@@ -118,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Mechanics:"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:textColor="@color/colorPrimaryText"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             android:layout_marginTop="0dp"
@@ -133,7 +131,7 @@
             android:layout_marginRight="4dp"
             android:layout_marginTop="0dp"
             android:text="Compound"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:textColor="@color/colorSecondaryText"
             android:textStyle="italic"
             card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_mecanismo"
@@ -148,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:text="Force:"
             android:textColor="@color/colorPrimaryText"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
@@ -160,7 +158,7 @@
             android:id="@+id/tv_cv_ejercicio_rutina_fuerza_valor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="8sp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="4dp"
             android:layout_marginTop="0dp"
@@ -176,30 +174,30 @@
 
 
         <View
+            android:id="@+id/view"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@color/colorDivider"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo"
             android:layout_marginLeft="4dp"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorIcons"
+            card_view:layout_constraintHorizontal_bias="0.428"
+            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/view"
-            card_view:layout_constraintHorizontal_bias="0.428" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo" />
 
 
         <View
+            android:id="@+id/view2"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
-            android:background="@color/colorDivider"
+            android:background="@color/colorIcons"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_fuerza_valor"
-            android:id="@+id/view2" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_fuerza_valor" />
 
 
 
@@ -211,7 +209,7 @@
             android:layout_marginTop="0dp"
             android:text="Num. Series:"
             android:textColor="@color/colorAccentChido"
-            android:textSize="10sp"
+            android:textSize="8sp"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -221,7 +219,7 @@
             android:layout_height="wrap_content"
             android:text="5"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:layout_marginTop="0dp"
             card_view:layout_constraintTop_toBottomOf="@+id/view2"
             card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_num_series"
@@ -233,7 +231,7 @@
             android:layout_height="wrap_content"
             android:text="Peso total:"
             android:textColor="@color/colorAccentChido"
-            android:textSize="10sp"
+            android:textSize="8sp"
             card_view:layout_constraintRight_toLeftOf="@+id/tv_cv_ejercicio_pesot_valor"
             android:layout_marginRight="2dp"
             android:layout_marginTop="0dp"
@@ -245,7 +243,7 @@
             android:layout_height="wrap_content"
             android:text="900Kgs"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:layout_marginRight="8dp"
             card_view:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="0dp"
@@ -259,7 +257,7 @@
             android:layout_marginTop="0dp"
             android:text="Descanso (Serie):"
             android:textColor="@color/colorAccentChido"
-            android:textSize="10sp"
+            android:textSize="8sp"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_num_series" />
 
@@ -269,7 +267,7 @@
             android:layout_height="wrap_content"
             android:text="60s"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="10sp"
+            android:textSize="8sp"
             android:layout_marginTop="0dp"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_num_series_valor"
             card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_descanso_serie"
@@ -283,7 +281,7 @@
             android:layout_marginTop="0dp"
             android:text="Descanso (Fin):"
             android:textColor="@color/colorAccentChido"
-            android:textSize="10sp"
+            android:textSize="8sp"
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_descanso_serie" />
 
@@ -293,7 +291,7 @@
             android:layout_height="wrap_content"
             android:text="90s"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="10sp"
+            android:textSize="8sp"
             card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_descanso_final"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="0dp"

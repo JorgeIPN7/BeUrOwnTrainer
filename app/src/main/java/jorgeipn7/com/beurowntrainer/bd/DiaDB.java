@@ -43,11 +43,7 @@ public class DiaDB {
 
 
     //DELETE
-    public void deleteRutina(Dia dia, Rutina rutina){
-        realm.beginTransaction();
-            dia.getRutinas().remove(rutina);
-        realm.commitTransaction();
-    }
+
 
 
 }

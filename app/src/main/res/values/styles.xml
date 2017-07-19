@@ -33,8 +33,22 @@
         <item name="android:drawablePadding">@dimen/drawablePadding_btn_pp</item>
         <item name="android:paddingLeft">@dimen/paddingLeft_btn_pp</item>
         <item name="android:gravity">center_vertical|left</item>
-
     </style>
+
+    <style name="ButtonDialogo" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/colorAccentChidoAlpha</item>
+        <item name="colorControlHighlight">@color/colorAccentChido</item>
+        <item name="android:background">@color/colorAccentChidoAlpha</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textSize">@dimen/size_btn_pp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+
+
+
 
     <!-- parent="Widget.AppCompat.Button.Colored"> -->
     <style name="ButtonEditarRutinaDias" parent="Theme.AppCompat.Light">

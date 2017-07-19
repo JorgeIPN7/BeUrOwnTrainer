@@ -314,7 +314,7 @@
                 android:id="@+id/btn_salir_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/ButtonPP"
+                style="@style/ButtonDialogo"
                 android:layout_marginRight="2dp"
                 />
 
@@ -324,7 +324,7 @@
                 android:id="@+id/btn_agregar_ejercicio_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/ButtonPP"
+                style="@style/ButtonDialogo"
                 android:layout_marginLeft="2dp"
                 />
         </LinearLayout>

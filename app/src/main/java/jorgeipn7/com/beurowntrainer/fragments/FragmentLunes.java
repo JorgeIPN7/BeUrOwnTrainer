@@ -3,6 +3,7 @@ package jorgeipn7.com.beurowntrainer.fragments;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
@@ -14,24 +15,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.List;
-
+import android.widget.TextView;
 import io.realm.Realm;
 import io.realm.RealmList;
-import io.realm.RealmObject;
 import jorgeipn7.com.beurowntrainer.R;
 import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio;
 import jorgeipn7.com.beurowntrainer.adapters.AdapterRutina;
 import jorgeipn7.com.beurowntrainer.bd.DiaDB;
+import jorgeipn7.com.beurowntrainer.bd.EjercicioBD;
 import jorgeipn7.com.beurowntrainer.bd.RutinaBD;
 import jorgeipn7.com.beurowntrainer.models.Dia;
 import jorgeipn7.com.beurowntrainer.models.Ejercicio;
@@ -59,7 +53,19 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             btn_editar_rutina_add2;
 
     private static final int REQUEST_CODE= 1;
-
+    //DialogInformacion
+    Dialog dialogoInformacion;
+    ImageView go_to_video,
+            iv_dialog_ejercicio_info;
+    TextView tv_d_ejercicio_informacion_titulo,
+            tv_d_ejercicio_informacion_utilidad,
+            tv_d_ejercicio_informacion_mecanismo,
+            tv_d_ejercicio_informacion_fuerza,
+            tv_d_ejercicio_informacion_preparacion,
+            tv_d_ejercicio_informacion_ejecucion,
+            tv_d_ejercicio_informacion_comentarios;
+    Button btn_salir_info, btn_agregar_ejercicio_info;
+    CheckBox cb_dialogo_info_ejercicio_favorito;
     //Dialog
     Dialog dialogUpdateRutina;
     ImageView iv_dialog_ejercicio_agregar;
@@ -116,14 +122,60 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             @Override
             public void onItemClick(Rutina rutina, int position) {
                 Log.d("Fragment", "Foto");
+
+                dialogoInfo();
+                final EjercicioBD ejercicioBD= new EjercicioBD(realm);
+                final Ejercicio ejercicio= rutinaBD.getEjercicioFromRutina(rutina);
+
+                Log.d("Fragment", "ejercicio" + getResources().getString(ejercicio.getNombre()) );
+
+                //dialogoInformacion.setTitle(getResources().getString(ejercicio.getNombre()));
+                iv_dialog_ejercicio_info.setImageResource(ejercicio.getFoto());
+                tv_d_ejercicio_informacion_titulo.setText(getResources().getString(ejercicio.getNombre()));
+                tv_d_ejercicio_informacion_utilidad.setText(getResources().getString(ejercicio.getUtilidad()));
+                tv_d_ejercicio_informacion_mecanismo.setText(getResources().getString(ejercicio.getMecanismo()));
+                tv_d_ejercicio_informacion_fuerza.setText(getResources().getString(ejercicio.getTipoFuerza()));
+                tv_d_ejercicio_informacion_preparacion.setText(getResources().getString(ejercicio.getPreparacion()));
+                tv_d_ejercicio_informacion_ejecucion.setText(getResources().getString(ejercicio.getEjecucion()));
+                tv_d_ejercicio_informacion_comentarios.setText(getResources().getString(ejercicio.getComentarios()));
+
+                go_to_video.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ejercicio.getUrlInstrucciones())));
+                    }
+                });
+
+                cb_dialogo_info_ejercicio_favorito.setChecked(ejercicio.isFavorito());
+
+
+                cb_dialogo_info_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
+                        if(ejercicio.isFavorito() == false)
+                            ejercicioBD.updateEjercicioFavortito( ejercicio, true );
+                        else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                        adapter.notifyDataSetChanged();
+                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
+
+                    }
+                });
+
+
+                dialogoInformacion.show();
+
+
+
+
+
             }
         }, new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
                 Log.d("Fragment", "Borrar Rutina");
-
-                diaBD.deleteRutina(dia, rutina);
                 rutinaBD.deleteRutina(rutina);
+                adapter.notifyDataSetChanged();
             }
         }, new AdapterRutina.OnItemClickListener() {
             @Override
@@ -250,18 +302,49 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
                     dialogUpdateRutina.cancel();
                 }
 
-
-
-
-
-
-
-
             }
         });
 
     }
 
+    private void dialogoInfo(){
+
+        dialogoInformacion = new Dialog(getContext(),android.R.style.Theme_DeviceDefault_Dialog);
+        dialogoInformacion.setContentView(R.layout.dialogo_ejercicio_informacion);
+
+        go_to_video= (ImageView) dialogoInformacion.findViewById(R.id.go_to_video);
+        iv_dialog_ejercicio_info= (ImageView) dialogoInformacion.findViewById(R.id.iv_dialog_ejercicio_info);
+
+
+        tv_d_ejercicio_informacion_titulo = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_titulo);
+        tv_d_ejercicio_informacion_utilidad = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_utilidad);
+        tv_d_ejercicio_informacion_mecanismo = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_mecanismo);
+        tv_d_ejercicio_informacion_fuerza = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_fuerza);
+        tv_d_ejercicio_informacion_preparacion = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_preparacion);
+        tv_d_ejercicio_informacion_ejecucion = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_ejecucion);
+        tv_d_ejercicio_informacion_comentarios = (TextView) dialogoInformacion.findViewById(R.id.tv_d_ejercicio_informacion_comentarios);
+
+        btn_salir_info=(Button)dialogoInformacion.findViewById(R.id.btn_salir_info);
+        btn_agregar_ejercicio_info=(Button)dialogoInformacion.findViewById(R.id.btn_agregar_ejercicio_info);
+
+        cb_dialogo_info_ejercicio_favorito= (CheckBox)dialogoInformacion.findViewById(R.id.cb_dialogo_info_ejercicio_favorito);
+        btn_agregar_ejercicio_info.setVisibility(View.INVISIBLE);
+        btn_agregar_ejercicio_info.setVisibility(View.INVISIBLE);
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, 100);
+        lp.weight = 0;
+        btn_agregar_ejercicio_info.setLayoutParams(lp);
+
+
+        btn_salir_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogoInformacion.cancel();
+            }
+        });
+
+
+    }
 
     private void updateEjercicio(Rutina rutina){
         rutinaBD.updateRutina(rutina, new Rutina( series1, series2, repeticiones1, repeticiones2, peso1, peso2, descansoSerie, descansoFinal, descansoBiSerie) );
