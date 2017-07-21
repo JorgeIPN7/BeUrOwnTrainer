@@ -46,10 +46,6 @@
     </style>
 
 
-
-
-
-
     <!-- parent="Widget.AppCompat.Button.Colored"> -->
     <style name="ButtonEditarRutinaDias" parent="Theme.AppCompat.Light">
         <item name="colorButtonNormal">@color/colorAccentAlpha</item>

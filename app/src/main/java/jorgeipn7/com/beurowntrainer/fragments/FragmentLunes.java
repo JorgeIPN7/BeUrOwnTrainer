@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import io.realm.Realm;
 import io.realm.RealmList;
 import jorgeipn7.com.beurowntrainer.R;
+import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarBiSerie;
 import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio;
 import jorgeipn7.com.beurowntrainer.adapters.AdapterRutina;
 import jorgeipn7.com.beurowntrainer.bd.DiaDB;
@@ -64,6 +66,8 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             tv_d_ejercicio_informacion_preparacion,
             tv_d_ejercicio_informacion_ejecucion,
             tv_d_ejercicio_informacion_comentarios;
+    TextInputLayout ti_descanso_final;
+
     Button btn_salir_info, btn_agregar_ejercicio_info;
     CheckBox cb_dialogo_info_ejercicio_favorito;
     //Dialog
@@ -87,6 +91,7 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             descansoFinal,
             descansoBiSerie;
     Rutina rutinaAux;
+    boolean FLAG_UPDATE_2DO_EJERCICIO;
 
     public FragmentLunes() {
         // Required empty public constructor
@@ -97,10 +102,7 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-
-
-
+        FLAG_UPDATE_2DO_EJERCICIO=false;
         realm= Realm.getDefaultInstance();
         diaBD= new DiaDB(realm);
         rutinaBD= new RutinaBD(realm);
@@ -124,10 +126,91 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
                 Log.d("Fragment", "Foto");
 
                 dialogoInfo();
-                final EjercicioBD ejercicioBD= new EjercicioBD(realm);
-                final Ejercicio ejercicio= rutinaBD.getEjercicioFromRutina(rutina);
+                final EjercicioBD ejercicioBD = new EjercicioBD(realm);
+                final Ejercicio ejercicio = rutinaBD.getEjercicioFromRutina(rutina);
 
-                Log.d("Fragment", "ejercicio" + getResources().getString(ejercicio.getNombre()) );
+                Log.d("Fragment", "ejercicio" + getResources().getString(ejercicio.getNombre()));
+
+                //dialogoInformacion.setTitle(getResources().getString(ejercicio.getNombre()));
+                iv_dialog_ejercicio_info.setImageResource(ejercicio.getFoto());
+                tv_d_ejercicio_informacion_titulo.setText(getResources().getString(ejercicio.getNombre()));
+                tv_d_ejercicio_informacion_utilidad.setText(getResources().getString(ejercicio.getUtilidad()));
+                tv_d_ejercicio_informacion_mecanismo.setText(getResources().getString(ejercicio.getMecanismo()));
+                tv_d_ejercicio_informacion_fuerza.setText(getResources().getString(ejercicio.getTipoFuerza()));
+                tv_d_ejercicio_informacion_preparacion.setText(getResources().getString(ejercicio.getPreparacion()));
+                tv_d_ejercicio_informacion_ejecucion.setText(getResources().getString(ejercicio.getEjecucion()));
+                tv_d_ejercicio_informacion_comentarios.setText(getResources().getString(ejercicio.getComentarios()));
+
+
+
+                go_to_video.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ejercicio.getUrlInstrucciones())));
+                    }
+                });
+
+                cb_dialogo_info_ejercicio_favorito.setChecked(ejercicio.isFavorito());
+
+
+                cb_dialogo_info_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito());
+                        if (ejercicio.isFavorito() == false)
+                            ejercicioBD.updateEjercicioFavortito(ejercicio, true);
+                        else ejercicioBD.updateEjercicioFavortito(ejercicio, false);
+                        adapter.notifyDataSetChanged();
+                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito());
+
+                    }
+                });
+
+
+                dialogoInformacion.show();
+
+
+            }
+        }, new AdapterRutina.OnItemClickListener() {
+            @Override
+            public void onItemClick(Rutina rutina, int position) {
+                Log.d("Fragment", "Borrar Rutina");
+                rutinaBD.deleteRutina(rutina);
+                adapter.notifyDataSetChanged();
+            }
+        }, new AdapterRutina.OnItemClickListener() {
+            @Override
+            public void onItemClick(Rutina rutina, int position) {
+                Log.d("Fragment", "Editar Rutina");
+                FLAG_UPDATE_2DO_EJERCICIO=false;
+
+                dialogo();
+                rutinaAux = rutina;
+
+                iv_dialog_ejercicio_agregar.setImageResource(rutinaBD.getEjercicioFromRutina(rutina).getFoto());
+                et_num_series.setText(String.valueOf(rutina.getSeries1()));
+                et_num_repeticiones.setText(String.valueOf(rutina.getRepeticiones1()));
+                et_peso.setText(String.valueOf(rutina.getPeso1()));
+                et_descanso_serie.setText(String.valueOf(rutina.getDescansoSerie()));
+                et_descanso_final.setText(String.valueOf(rutina.getDescansoFinal()));
+
+                btn_agregar_ejercicio.setText(getResources().getString(R.string.actualizar));
+                dialogUpdateRutina.show();
+
+            }
+        }
+        //-----------------------------------------------------------------------------------------
+        //--------------------------------------------
+        //-------------
+        , new AdapterRutina.OnItemClickListener() {
+            @Override
+            public void onItemClick(Rutina rutina, int position) {
+                Log.d("FragmentLunes", "Foto 2");
+                dialogoInfo();
+                final EjercicioBD ejercicioBD = new EjercicioBD(realm);
+                final Ejercicio ejercicio = rutinaBD.getEjercicio2FromRutina(rutina);
+
+                Log.d("Fragment", "ejercicio" + getResources().getString(ejercicio.getNombre()));
 
                 //dialogoInformacion.setTitle(getResources().getString(ejercicio.getNombre()));
                 iv_dialog_ejercicio_info.setImageResource(ejercicio.getFoto());
@@ -152,12 +235,12 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
                 cb_dialogo_info_ejercicio_favorito.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito()  );
-                        if(ejercicio.isFavorito() == false)
-                            ejercicioBD.updateEjercicioFavortito( ejercicio, true );
-                        else ejercicioBD.updateEjercicioFavortito( ejercicio, false );
+                        Log.d("CheckBoxFav1", "->" + ejercicio.isFavorito());
+                        if (ejercicio.isFavorito() == false)
+                            ejercicioBD.updateEjercicioFavortito(ejercicio, true);
+                        else ejercicioBD.updateEjercicioFavortito(ejercicio, false);
                         adapter.notifyDataSetChanged();
-                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito()  );
+                        Log.d("CheckBoxFav2", "->" + ejercicio.isFavorito());
 
                     }
                 });
@@ -166,38 +249,42 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
                 dialogoInformacion.show();
 
 
-
-
-
             }
-        }, new AdapterRutina.OnItemClickListener() {
+        }
+
+        ,new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
-                Log.d("Fragment", "Borrar Rutina");
+                Log.d("FragmentLunes", "Borrar 2");
                 rutinaBD.deleteRutina(rutina);
                 adapter.notifyDataSetChanged();
             }
-        }, new AdapterRutina.OnItemClickListener() {
+        }
+
+        , new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
-                Log.d("Fragment", "Editar Rutina");
-
-
+                Log.d("FragmentLunes", "Edit 2");
+                FLAG_UPDATE_2DO_EJERCICIO= true;
                 dialogo();
-                rutinaAux= rutina;
+                rutinaAux = rutina;
 
-                iv_dialog_ejercicio_agregar.setImageResource(rutinaBD.getEjercicioFromRutina(rutina).getFoto());
-                et_num_series.setText(String.valueOf(rutina.getSeries1()));
-                et_num_repeticiones.setText(String.valueOf(rutina.getRepeticiones1()));
-                et_peso.setText(String.valueOf(rutina.getPeso1()));
-                et_descanso_serie.setText(String.valueOf(rutina.getDescansoSerie()));
-                et_descanso_final.setText(String.valueOf(rutina.getDescansoFinal()));
+                iv_dialog_ejercicio_agregar.setImageResource(rutinaBD.getEjercicio2FromRutina(rutina).getFoto());
+                et_num_series.setText(String.valueOf(rutina.getSeries2()));
+                et_num_repeticiones.setText(String.valueOf(rutina.getRepeticiones2()));
+                et_peso.setText(String.valueOf(rutina.getPeso2()));
+
+                et_descanso_serie.setText(String.valueOf(rutina.getDescansoBiSerie()));
+                ti_descanso_final.setVisibility(View.INVISIBLE);
+
 
                 btn_agregar_ejercicio.setText(getResources().getString(R.string.actualizar));
                 dialogUpdateRutina.show();
-
             }
-        });
+        }
+
+
+        );
         recyclerView.setAdapter(adapter);
 
         btn_editar_rutina_add1= (Button)v.findViewById(R.id.btn_editar_rutina_add1);
@@ -221,7 +308,9 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
                 startActivityForResult(i, REQUEST_CODE);
                 break;
             case R.id.btn_editar_rutina_add2:
-                Log.d("FragmentLunes", "Click: btn agregar 2");
+                Intent i2= new Intent(getActivity(), EditarRutinaAgregarBiSerie.class);
+                i2.putExtra("dia", REQUEST_CODE);
+                startActivityForResult(i2, REQUEST_CODE);
                 break;
             default:break;
         }
@@ -242,6 +331,8 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
         btn_salir=(Button)dialogUpdateRutina.findViewById(R.id.btn_salir);
         btn_agregar_ejercicio=(Button)dialogUpdateRutina.findViewById(R.id.btn_agregar_ejercicio);
 
+        ti_descanso_final = (TextInputLayout) dialogUpdateRutina.findViewById(R.id.ti_descanso_final);
+
         btn_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,53 +345,104 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
 
-                boolean FLAG= true;
+                Log.d("FragmentLunes", "btn_agregar_ejercicio -> Click" );
+                Log.d("FragmentLunes", "update2do? -> " + FLAG_UPDATE_2DO_EJERCICIO );
 
 
-                if(TextUtils.isEmpty(et_num_series.getText().toString().trim())){
-                    et_num_series.setError("Error");
-                    FLAG= false;
-                }else series1= Integer.parseInt(et_num_series.getText().toString());
+                if (!FLAG_UPDATE_2DO_EJERCICIO){
+                    boolean FLAG= true;
 
-                series2= 0;
+                    if(TextUtils.isEmpty(et_num_series.getText().toString().trim())){
+                        et_num_series.setError("Error");
+                        FLAG= false;
+                    }else series1= Integer.parseInt(et_num_series.getText().toString());
 
-                if(TextUtils.isEmpty(et_num_repeticiones.getText().toString().trim())){
-                    et_num_repeticiones.setError("Error");
-                    FLAG= false;
-                }else repeticiones1= Integer.parseInt(et_num_repeticiones.getText().toString());
+                    series2= 0;
 
-                repeticiones2= 0;
+                    if(TextUtils.isEmpty(et_num_repeticiones.getText().toString().trim())){
+                        et_num_repeticiones.setError("Error");
+                        FLAG= false;
+                    }else repeticiones1= Integer.parseInt(et_num_repeticiones.getText().toString());
 
-                if(TextUtils.isEmpty(et_peso.getText().toString().trim())){
-                    et_peso.setError("Error");
-                    FLAG= false;
-                }else peso1= Integer.parseInt(et_peso.getText().toString());
+                    repeticiones2= 0;
 
-                peso2= 0;
+                    if(TextUtils.isEmpty(et_peso.getText().toString().trim())){
+                        et_peso.setError("Error");
+                        FLAG= false;
+                    }else peso1= Integer.parseInt(et_peso.getText().toString());
 
-                if(TextUtils.isEmpty(et_descanso_serie.getText().toString().trim())){
-                    et_descanso_serie.setError("Error");
-                    FLAG= false;
-                }else descansoSerie= Integer.parseInt(et_descanso_serie.getText().toString());
+                    peso2= 0;
 
-                if(TextUtils.isEmpty(et_descanso_final.getText().toString().trim())){
-                    et_descanso_final.setError("Error");
-                    FLAG= false;
-                }else descansoFinal= Integer.parseInt(et_descanso_final.getText().toString());
+                    if(TextUtils.isEmpty(et_descanso_serie.getText().toString().trim())){
+                        et_descanso_serie.setError("Error");
+                        FLAG= false;
+                    }else descansoSerie= Integer.parseInt(et_descanso_serie.getText().toString());
 
-                descansoBiSerie= 0;
+                    if(TextUtils.isEmpty(et_descanso_final.getText().toString().trim())){
+                        et_descanso_final.setError("Error");
+                        FLAG= false;
+                    }else descansoFinal= Integer.parseInt(et_descanso_final.getText().toString());
 
-                if(FLAG){
-                    Log.d("Ejercicio", "num series: " + et_num_series.getText().toString() );
-                    Log.d("Ejercicio", "num repeticiones: " + et_num_repeticiones.getText().toString() );
-                    Log.d("Ejercicio", "peso: " + et_peso.getText().toString() );
-                    Log.d("Ejercicio", "descanso serie: " + et_descanso_serie.getText().toString() );
-                    Log.d("Ejercicio", "descanso final: " + et_descanso_final.getText().toString() );
+                    descansoBiSerie= 0;
 
-                    updateEjercicio(rutinaAux);
-                    adapter.notifyDataSetChanged();
-                    dialogUpdateRutina.cancel();
+                    if(FLAG){
+                        Log.d("Ejercicio", "num series: " + et_num_series.getText().toString() );
+                        Log.d("Ejercicio", "num repeticiones: " + et_num_repeticiones.getText().toString() );
+                        Log.d("Ejercicio", "peso: " + et_peso.getText().toString() );
+                        Log.d("Ejercicio", "descanso serie: " + et_descanso_serie.getText().toString() );
+                        Log.d("Ejercicio", "descanso final: " + et_descanso_final.getText().toString() );
+
+                        updateEjercicio(rutinaAux);
+                        adapter.notifyDataSetChanged();
+                        dialogUpdateRutina.cancel();
+                    }
                 }
+
+                else{
+                    boolean FLAG= true;
+
+                    if(TextUtils.isEmpty(et_num_series.getText().toString().trim())){
+                        et_num_series.setError("Error");
+                        FLAG= false;
+                    }else series2= Integer.parseInt(et_num_series.getText().toString());
+
+                    if(TextUtils.isEmpty(et_num_repeticiones.getText().toString().trim())){
+                        et_num_repeticiones.setError("Error");
+                        FLAG= false;
+                    }else repeticiones2= Integer.parseInt(et_num_repeticiones.getText().toString());
+
+                    if(TextUtils.isEmpty(et_peso.getText().toString().trim())){
+                        et_peso.setError("Error");
+                        FLAG= false;
+                    }else peso2= Integer.parseInt(et_peso.getText().toString());
+
+                    if(TextUtils.isEmpty(et_descanso_serie.getText().toString().trim())){
+                        et_descanso_serie.setError("Error");
+                        FLAG= false;
+                    }else descansoBiSerie= Integer.parseInt(et_descanso_serie.getText().toString());
+
+
+                    if(FLAG){
+                        Log.d("Ejercicio", "num series: " + et_num_series.getText().toString() );
+                        Log.d("Ejercicio", "num repeticiones: " + et_num_repeticiones.getText().toString() );
+                        Log.d("Ejercicio", "peso: " + et_peso.getText().toString() );
+                        Log.d("Ejercicio", "descanso serie: " + et_descanso_serie.getText().toString() );
+                        Log.d("Ejercicio", "descanso final: " + et_descanso_final.getText().toString() );
+
+
+                        update2doEjercicio(rutinaAux);
+                        adapter.notifyDataSetChanged();
+                        dialogUpdateRutina.cancel();
+
+                    }
+
+                }
+
+
+
+
+
+
 
             }
         });
@@ -349,6 +491,15 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     private void updateEjercicio(Rutina rutina){
         rutinaBD.updateRutina(rutina, new Rutina( series1, series2, repeticiones1, repeticiones2, peso1, peso2, descansoSerie, descansoFinal, descansoBiSerie) );
     }
+
+    private void update2doEjercicio(Rutina rutina){
+
+        //Log.d("FragmentLunes", "Rutina " + rutina.toString());
+        //Log.d("FragmentLunes", "RutinaAUX " + rutinaAux.toString());
+        //Log.d("FragmentLunes", "New Rutina: " + series1 + ", " + series2 + ", " + repeticiones1 + ", " + repeticiones2 + ", " + peso1 + ", " + peso2 + ", " + descansoSerie + ", " + descansoFinal + ", " + descansoBiSerie  );
+        rutinaBD.updateRutina2doEjercicio(rutina, new Rutina( series1, series2, repeticiones1, repeticiones2, peso1, peso2, descansoSerie, descansoFinal, descansoBiSerie) );
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

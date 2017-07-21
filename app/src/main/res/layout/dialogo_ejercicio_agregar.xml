@@ -107,6 +107,7 @@
                 android:shadowColor="@color/colorAccent"
                 android:textColorLink="@color/colorAccent"
                 android:textColorHighlight="@color/colorAccent"
+                android:id="@+id/ti_descanso_serie"
                 >
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/et_descanso_serie"
@@ -125,6 +126,7 @@
                 android:shadowColor="@color/colorAccent"
                 android:textColorLink="@color/colorAccent"
                 android:textColorHighlight="@color/colorAccent"
+                android:id="@+id/ti_descanso_final"
                 >
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/et_descanso_final"

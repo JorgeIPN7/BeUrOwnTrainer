@@ -78,6 +78,21 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
                 public void onItemClick(Rutina rutina, int position) {
 
                 }
+            }, new AdapterRutina.OnItemClickListener() {
+                @Override
+                public void onItemClick(Rutina rutina, int position) {
+
+                }
+            }, new AdapterRutina.OnItemClickListener() {
+                @Override
+                public void onItemClick(Rutina rutina, int position) {
+
+                }
+            }, new AdapterRutina.OnItemClickListener() {
+                @Override
+                public void onItemClick(Rutina rutina, int position) {
+
+                }
             }
             );
             recyclerView.setAdapter(adapter);

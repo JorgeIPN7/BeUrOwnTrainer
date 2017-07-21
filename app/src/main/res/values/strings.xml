@@ -84,8 +84,11 @@
     <string name="dialogo_agregar_ejercicio_num_series">Número de series</string>
     <string name="dialogo_agregar_ejercicio_num_repeticiones">Número de repeticiones</string>
     <string name="dialogo_agregar_ejercicio_peso">Peso (Kg)</string>
-    <string name="dialogo_agregar_ejercicio_descanso_serie">Descanso (Seg)</string>
+    <string name="dialogo_agregar_ejercicio_descanso_serie">Descanso al finalizar ejercicio (Seg)</string>
+    <string name="dialogo_agregar_ejercicio_descanso_bi_serie">Descanso al finalizar Bi-Serie (Seg)</string>
     <string name="dialogo_agregar_ejercicio_descanso_final">Descanso al finalizar (Seg)</string>
+    <string name="dialogo_agregar_ejercicio_descanso_biserie">Descanso entre ejercicios (Seg)</string>
+
     <string name="preparacion_texto">Preparación:</string>
     <string name="ejecucion_texto">Ejecución:</string>
     <string name="comentarios_texto">Comentarios y Consejos:</string>
@@ -96,6 +99,7 @@
     <string name="comentarios_espalda_dumbbell_bent_over_two_arm">Allow scapula to articulate but do not rotate torso in effort to throw weight up. Torso should be close to horizontal. Positioning supporting knee and/or arm slightly forward or back will allow for proper levelling of torso. Torso may be positioned lower to allow for heavier dumbbell to make contact with floor, if desired.</string>
     <string name="musculo_espalda">Espalda</string>
     <string name="actualizar">Actualizar</string>
+    <string name="title_activity_editar_rutina_agregar_bi_serie">EditarRutinaAgregarBiSerie</string>
 
 
 </resources>

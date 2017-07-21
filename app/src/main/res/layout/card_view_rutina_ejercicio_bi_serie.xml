@@ -43,11 +43,11 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/pierna_cable_abduction"
             android:padding="10dp"
-            card_view:layout_constraintBottom_toBottomOf="@+id/viewCL"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toLeftOf="@+id/guideline20"
             card_view:layout_constraintTop_toTopOf="parent"
-             />
+            card_view:layout_constraintVertical_bias="0.495" />
 
         <TextView
             android:id="@+id/tv_cv_ejercicio_rutina_titulo"
@@ -63,20 +63,6 @@
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
-
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@color/colorIcons"
-            card_view:layout_constraintHorizontal_bias="0.428"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo" />
 
         <TextView
             android:id="@+id/tv_cv_ejercicio_clasificacion"
@@ -123,8 +109,6 @@
             card_view:layout_constraintHorizontal_bias="0.0"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="4dp" />
-
-
 
         <TextView
             android:id="@+id/tv_cv_ejercicio_rutina_mecanismo"
@@ -188,6 +172,21 @@
             android:layout_marginStart="2dp"
             android:layout_marginEnd="4dp" />
 
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorIcons"
+            card_view:layout_constraintHorizontal_bias="0.428"
+            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
+            card_view:layout_constraintRight_toRightOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo" />
+
+
         <View
             android:id="@+id/view2"
             android:layout_width="0dp"
@@ -199,6 +198,8 @@
             card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_fuerza_valor" />
+
+
 
         <TextView
             android:id="@+id/tv_cv_ejercicio_num_series"
@@ -303,7 +304,7 @@
             app:srcCompat="@android:drawable/ic_menu_delete"
             card_view:layout_constraintRight_toLeftOf="@+id/iv_cv_ejercicio_editar"
             android:layout_marginRight="4dp"
-            card_view:layout_constraintBottom_toBottomOf="@+id/viewCL"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_pesot" />
@@ -315,293 +316,11 @@
             app:srcCompat="@android:drawable/ic_menu_edit"
             android:layout_marginRight="8dp"
             card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="@+id/viewCL"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_pesot_valor" />
 
-
-        <View
-            android:id="@+id/viewCL"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/colorIcons"
-            card_view:layout_constraintLeft_toLeftOf="parent"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_descanso_final" />
-
-
-        <ImageView
-            android:id="@+id/iv_cv_ejercicio_rutina_foto2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:adjustViewBounds="false"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/pierna_cable_abduction"
-            android:padding="10dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="0dp"
-            card_view:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL"
-            card_view:layout_constraintRight_toLeftOf="@+id/guideline20"
-            android:layout_marginRight="0dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_titulo2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="2dp"
-            android:text="Barbell Bench Press"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccentChido"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toTopOf="@+id/viewCL" />
-
-
-        <View
-            android:id="@+id/viewCL2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@color/colorIcons"
-            card_view:layout_constraintHorizontal_bias="0.428"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_titulo2" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_clasificacion2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Clasificación:"
-            android:textColor="@color/colorAccentChidoAlpha"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL2"
-            android:layout_marginLeft="4dp"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            android:layout_marginRight="8dp"
-            card_view:layout_constraintRight_toRightOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_utilidad2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="0dp"
-            android:text="Utilidad:"
-            android:textSize="8sp"
-            android:textColor="@color/colorPrimaryText"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_clasificacion2"
-            android:layout_marginStart="4dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_utilidad_valor2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="0dp"
-            android:text="Basic"
-            android:textSize="8sp"
-            android:textColor="@color/colorSecondaryText"
-            android:textStyle="italic"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_utilidad2"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_clasificacion2"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="4dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_mecanismo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Mechanics:"
-            android:textSize="8sp"
-            android:textColor="@color/colorPrimaryText"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_utilidad2"
-            android:layout_marginStart="4dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_mecanismo_valor2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="0dp"
-            android:text="Compound"
-            android:textSize="8sp"
-            android:textColor="@color/colorSecondaryText"
-            android:textStyle="italic"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_mecanismo2"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_utilidad_valor2"
-            card_view:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="4dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_fuerza2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textSize="8sp"
-            android:text="Force:"
-            android:textColor="@color/colorPrimaryText"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_mecanismo2" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_rutina_fuerza_valor2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="8sp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="0dp"
-            android:text="TextView"
-            android:textColor="@color/colorSecondaryText"
-            android:textStyle="italic"
-            card_view:layout_constraintHorizontal_bias="1.0"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_rutina_fuerza2"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_mecanismo_valor2"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="4dp" />
-
-        <View
-            android:id="@+id/viewCL22"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@color/colorIcons"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_rutina_fuerza_valor2" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_num_series2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="0dp"
-            android:text="Num. Series:"
-            android:textColor="@color/colorAccentChido"
-            android:textSize="8sp"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL22" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_num_series_valor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="8sp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL22"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_num_series2"
-            android:layout_marginLeft="2dp" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_pesot2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Peso total:"
-            android:textColor="@color/colorAccentChido"
-            android:textSize="8sp"
-            card_view:layout_constraintRight_toLeftOf="@+id/tv_cv_ejercicio_pesot_valor2"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL22" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_pesot_valor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="900Kgs"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="8sp"
-            android:layout_marginRight="8dp"
-            card_view:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/viewCL22" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_descanso_serie2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="0dp"
-            android:text="Descanso (Ejercicio):"
-            android:textColor="@color/colorAccentChido"
-            android:textSize="8sp"
-            card_view:layout_constraintLeft_toLeftOf="@+id/guideline20"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_num_series2" />
-
-        <TextView
-            android:id="@+id/tv_cv_ejercicio_descanso_serie_valor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="60s"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="8sp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_num_series_valor2"
-            card_view:layout_constraintLeft_toRightOf="@+id/tv_cv_ejercicio_descanso_serie2"
-            android:layout_marginLeft="2dp" />
-
-
-
-        <ImageView
-            android:id="@+id/iv_cv_ejercicio_borrar2"
-            android:layout_width="20dp"
-            android:layout_height="20sp"
-            app:srcCompat="@android:drawable/ic_menu_delete"
-            card_view:layout_constraintRight_toLeftOf="@+id/iv_cv_ejercicio_editar2"
-            android:layout_marginRight="4dp"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="0dp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_pesot2" />
-
-        <ImageView
-            android:id="@+id/iv_cv_ejercicio_editar2"
-            android:layout_width="20dp"
-            android:layout_height="20sp"
-            app:srcCompat="@android:drawable/ic_menu_edit"
-            android:layout_marginRight="8dp"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="0dp"
-            android:layout_marginTop="0dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_cv_ejercicio_pesot_valor2" />
-
     </android.support.constraint.ConstraintLayout>
-
-
-
 </android.support.v7.widget.CardView>
 

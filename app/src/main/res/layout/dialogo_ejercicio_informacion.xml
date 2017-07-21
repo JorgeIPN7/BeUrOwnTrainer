@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pierna_dumbbell_pantorrilla_levantamiento_de_un_pie"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/blanco"
             android:textSize="16sp"
             android:layout_margin="7dp"
             android:textStyle="bold"

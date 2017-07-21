@@ -38,6 +38,11 @@ public class RutinaBD {
         return rutina.getEjercicios().get(0);
     }
 
+    public Ejercicio getEjercicio2FromRutina(Rutina rutina){
+        return rutina.getEjercicios().get(1);
+    }
+
+
 
     //UPDATE
     public void updateRutinaAddEjercicio(Rutina rutina, Ejercicio ejercicio){
@@ -55,6 +60,31 @@ public class RutinaBD {
             rutinaOLD.setDescansoFinal(rutinaNew.getDescansoFinal());
         realm.commitTransaction();
     }
+
+    public void updateRutina2doEjercicio(Rutina rutinaOLD, Rutina rutinaNew){
+        realm.beginTransaction();
+        rutinaOLD.setSeries2(rutinaNew.getSeries2());
+        rutinaOLD.setRepeticiones2(rutinaNew.getRepeticiones2());
+        rutinaOLD.setPeso2(rutinaNew.getPeso2());
+        rutinaOLD.setDescansoBiSerie(rutinaNew.getDescansoBiSerie());
+        realm.commitTransaction();
+    }
+
+
+
+
+    public void updateRutinaBiSerie(Rutina rutinaOLD, Rutina rutinaNew){
+        realm.beginTransaction();
+        rutinaOLD.setSeries2(rutinaNew.getSeries2());
+        rutinaOLD.setRepeticiones2(rutinaNew.getRepeticiones2());
+        rutinaOLD.setPeso2(rutinaNew.getPeso2());
+        rutinaOLD.setDescansoSerie(rutinaNew.getDescansoSerie());
+        rutinaOLD.setDescansoFinal(rutinaNew.getDescansoFinal());
+        realm.commitTransaction();
+    }
+
+
+
 
     //DELETE
     public  void  deleteRutina(Rutina rutina){
