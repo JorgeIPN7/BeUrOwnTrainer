@@ -33,10 +33,10 @@ import jorgeipn7.com.beurowntrainer.models.Ejercicio;
 import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class FragmentMartes extends Fragment implements View.OnClickListener{
+    /**
+     * A simple {@link Fragment} subclass.
+     */
+    public class FragmentMiercoles extends Fragment implements View.OnClickListener{
 
         private RealmList<Rutina> rutinas;
         private RecyclerView recyclerView;
@@ -51,7 +51,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
         Button btn_editar_rutina_add1,
                 btn_editar_rutina_add2;
 
-        private static final int REQUEST_CODE= 2;
+        private static final int REQUEST_CODE= 3;
         //DialogInformacion
         Dialog dialogoInformacion;
         ImageView go_to_video,
@@ -90,7 +90,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
         Rutina rutinaAux;
         boolean FLAG_UPDATE_2DO_EJERCICIO;
 
-        public FragmentMartes() {
+        public FragmentMiercoles() {
             // Required empty public constructor
         }
 
@@ -202,7 +202,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
                     , new AdapterRutina.OnItemClickListener() {
                 @Override
                 public void onItemClick(Rutina rutina, int position) {
-                    Log.d("FragmentMartes", "Foto 2");
+                    Log.d("FragmentMiercoles", "Foto 2");
                     dialogoInfo();
                     final EjercicioBD ejercicioBD = new EjercicioBD(realm);
                     final Ejercicio ejercicio = rutinaBD.getEjercicio2FromRutina(rutina);
@@ -252,7 +252,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
                     ,new AdapterRutina.OnItemClickListener() {
                 @Override
                 public void onItemClick(Rutina rutina, int position) {
-                    Log.d("FragmentMartes", "Borrar 2");
+                    Log.d("FragmentMiercoles", "Borrar 2");
                     rutinaBD.deleteRutina(rutina);
                     adapter.notifyDataSetChanged();
                 }
@@ -261,7 +261,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
                     , new AdapterRutina.OnItemClickListener() {
                 @Override
                 public void onItemClick(Rutina rutina, int position) {
-                    Log.d("FragmentMartes", "Edit 2");
+                    Log.d("FragmentMiercoles", "Edit 2");
                     FLAG_UPDATE_2DO_EJERCICIO= true;
                     dialogo();
                     rutinaAux = rutina;
@@ -342,8 +342,8 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
                 @Override
                 public void onClick(View view) {
 
-                    Log.d("FragmentMartes", "btn_agregar_ejercicio -> Click" );
-                    Log.d("FragmentMartes", "update2do? -> " + FLAG_UPDATE_2DO_EJERCICIO );
+                    Log.d("FragmentMiercoles", "btn_agregar_ejercicio -> Click" );
+                    Log.d("FragmentMiercoles", "update2do? -> " + FLAG_UPDATE_2DO_EJERCICIO );
 
 
                     if (!FLAG_UPDATE_2DO_EJERCICIO){
@@ -491,9 +491,9 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
 
         private void update2doEjercicio(Rutina rutina){
 
-            //Log.d("FragmentMartes", "Rutina " + rutina.toString());
-            //Log.d("FragmentMartes", "RutinaAUX " + rutinaAux.toString());
-            //Log.d("FragmentMartes", "New Rutina: " + series1 + ", " + series2 + ", " + repeticiones1 + ", " + repeticiones2 + ", " + peso1 + ", " + peso2 + ", " + descansoSerie + ", " + descansoFinal + ", " + descansoBiSerie  );
+            //Log.d("FragmentMiercoles", "Rutina " + rutina.toString());
+            //Log.d("FragmentMiercoles", "RutinaAUX " + rutinaAux.toString());
+            //Log.d("FragmentMiercoles", "New Rutina: " + series1 + ", " + series2 + ", " + repeticiones1 + ", " + repeticiones2 + ", " + peso1 + ", " + peso2 + ", " + descansoSerie + ", " + descansoFinal + ", " + descansoBiSerie  );
             rutinaBD.updateRutina2doEjercicio(rutina, new Rutina( series1, series2, repeticiones1, repeticiones2, peso1, peso2, descansoSerie, descansoFinal, descansoBiSerie) );
         }
 
@@ -502,7 +502,7 @@ public class FragmentMartes extends Fragment implements View.OnClickListener{
         public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
             if(requestCode == REQUEST_CODE && resultCode== REQUEST_CODE){
-                Log.d("insert", "FragmentMartes: notifyDataSetChanged");
+                Log.d("insert", "FragmentMiercoles: notifyDataSetChanged");
                 adapter.notifyDataSetChanged();
             }
         }

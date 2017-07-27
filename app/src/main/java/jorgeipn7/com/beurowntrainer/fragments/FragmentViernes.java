@@ -1,45 +1,42 @@
 package jorgeipn7.com.beurowntrainer.fragments;
 
+        import android.app.Dialog;
+        import android.content.Intent;
+        import android.net.Uri;
+        import android.os.Bundle;
+        import android.support.design.widget.TextInputEditText;
+        import android.support.design.widget.TextInputLayout;
+        import android.support.v4.app.Fragment;
+        import android.support.v7.widget.LinearLayoutManager;
+        import android.support.v7.widget.RecyclerView;
+        import android.text.TextUtils;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.CheckBox;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.TextView;
+        import io.realm.Realm;
+        import io.realm.RealmList;
+        import jorgeipn7.com.beurowntrainer.R;
+        import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarBiSerie;
+        import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio;
+        import jorgeipn7.com.beurowntrainer.adapters.AdapterRutina;
+        import jorgeipn7.com.beurowntrainer.bd.DiaDB;
+        import jorgeipn7.com.beurowntrainer.bd.EjercicioBD;
+        import jorgeipn7.com.beurowntrainer.bd.RutinaBD;
+        import jorgeipn7.com.beurowntrainer.models.Dia;
+        import jorgeipn7.com.beurowntrainer.models.Ejercicio;
+        import jorgeipn7.com.beurowntrainer.models.Rutina;
 
-import android.app.Dialog;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import io.realm.Realm;
-import io.realm.RealmList;
-import jorgeipn7.com.beurowntrainer.R;
-import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarBiSerie;
-import jorgeipn7.com.beurowntrainer.activities.EditarRutinaAgregarEjercicio;
-import jorgeipn7.com.beurowntrainer.adapters.AdapterRutina;
-import jorgeipn7.com.beurowntrainer.bd.DiaDB;
-import jorgeipn7.com.beurowntrainer.bd.EjercicioBD;
-import jorgeipn7.com.beurowntrainer.bd.RutinaBD;
-import jorgeipn7.com.beurowntrainer.models.Dia;
-import jorgeipn7.com.beurowntrainer.models.Ejercicio;
-import jorgeipn7.com.beurowntrainer.models.Rutina;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-
-//fragment_editar_rutina
-
-public class FragmentLunes extends Fragment implements View.OnClickListener{
+public class FragmentViernes extends Fragment implements View.OnClickListener{
 
     private RealmList<Rutina> rutinas;
     private RecyclerView recyclerView;
@@ -54,7 +51,7 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     Button btn_editar_rutina_add1,
             btn_editar_rutina_add2;
 
-    private static final int REQUEST_CODE= 1;
+    private static final int REQUEST_CODE= 5;
     //DialogInformacion
     Dialog dialogoInformacion;
     ImageView go_to_video,
@@ -93,7 +90,7 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     Rutina rutinaAux;
     boolean FLAG_UPDATE_2DO_EJERCICIO;
 
-    public FragmentLunes() {
+    public FragmentViernes() {
         // Required empty public constructor
     }
 
@@ -109,7 +106,7 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
         dia= diaBD.getDiaById(REQUEST_CODE);
 
 
-        rutinas= diaBD.getAllRutinaByDia(diaBD.getDiaById(1));
+        rutinas= diaBD.getAllRutinaByDia(diaBD.getDiaById(REQUEST_CODE));
 
 
         View v= inflater.inflate(R.layout.fragment_editar_rutina, container, false);
@@ -199,13 +196,13 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
 
             }
         }
-        //-----------------------------------------------------------------------------------------
-        //--------------------------------------------
-        //-------------
-        , new AdapterRutina.OnItemClickListener() {
+                //-----------------------------------------------------------------------------------------
+                //--------------------------------------------
+                //-------------
+                , new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
-                Log.d("FragmentLunes", "Foto 2");
+                Log.d("FragmentMiercoles", "Foto 2");
                 dialogoInfo();
                 final EjercicioBD ejercicioBD = new EjercicioBD(realm);
                 final Ejercicio ejercicio = rutinaBD.getEjercicio2FromRutina(rutina);
@@ -252,19 +249,19 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             }
         }
 
-        ,new AdapterRutina.OnItemClickListener() {
+                ,new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
-                Log.d("FragmentLunes", "Borrar 2");
+                Log.d("FragmentMiercoles", "Borrar 2");
                 rutinaBD.deleteRutina(rutina);
                 adapter.notifyDataSetChanged();
             }
         }
 
-        , new AdapterRutina.OnItemClickListener() {
+                , new AdapterRutina.OnItemClickListener() {
             @Override
             public void onItemClick(Rutina rutina, int position) {
-                Log.d("FragmentLunes", "Edit 2");
+                Log.d("FragmentMiercoles", "Edit 2");
                 FLAG_UPDATE_2DO_EJERCICIO= true;
                 dialogo();
                 rutinaAux = rutina;
@@ -345,8 +342,8 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view) {
 
-                Log.d("FragmentLunes", "btn_agregar_ejercicio -> Click" );
-                Log.d("FragmentLunes", "update2do? -> " + FLAG_UPDATE_2DO_EJERCICIO );
+                Log.d("FragmentMiercoles", "btn_agregar_ejercicio -> Click" );
+                Log.d("FragmentMiercoles", "update2do? -> " + FLAG_UPDATE_2DO_EJERCICIO );
 
 
                 if (!FLAG_UPDATE_2DO_EJERCICIO){
@@ -494,9 +491,9 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
 
     private void update2doEjercicio(Rutina rutina){
 
-        //Log.d("FragmentLunes", "Rutina " + rutina.toString());
-        //Log.d("FragmentLunes", "RutinaAUX " + rutinaAux.toString());
-        //Log.d("FragmentLunes", "New Rutina: " + series1 + ", " + series2 + ", " + repeticiones1 + ", " + repeticiones2 + ", " + peso1 + ", " + peso2 + ", " + descansoSerie + ", " + descansoFinal + ", " + descansoBiSerie  );
+        //Log.d("FragmentMiercoles", "Rutina " + rutina.toString());
+        //Log.d("FragmentMiercoles", "RutinaAUX " + rutinaAux.toString());
+        //Log.d("FragmentMiercoles", "New Rutina: " + series1 + ", " + series2 + ", " + repeticiones1 + ", " + repeticiones2 + ", " + peso1 + ", " + peso2 + ", " + descansoSerie + ", " + descansoFinal + ", " + descansoBiSerie  );
         rutinaBD.updateRutina2doEjercicio(rutina, new Rutina( series1, series2, repeticiones1, repeticiones2, peso1, peso2, descansoSerie, descansoFinal, descansoBiSerie) );
     }
 
@@ -504,10 +501,10 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-            if(requestCode == REQUEST_CODE && resultCode== REQUEST_CODE){
-                Log.d("insert", "FragmentLunes: notifyDataSetChanged");
-                adapter.notifyDataSetChanged();
-            }
+        if(requestCode == REQUEST_CODE && resultCode== REQUEST_CODE){
+            Log.d("insert", "FragmentMiercoles: notifyDataSetChanged");
+            adapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -517,3 +514,4 @@ public class FragmentLunes extends Fragment implements View.OnClickListener{
 
 
 }
+

@@ -12,6 +12,12 @@ import android.widget.Button;
 import jorgeipn7.com.beurowntrainer.R;
 import jorgeipn7.com.beurowntrainer.fragments.FragmentLunes;
 import jorgeipn7.com.beurowntrainer.fragments.FragmentMartes;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentMiercoles;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentJueves;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentViernes;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentSabado;
+import jorgeipn7.com.beurowntrainer.fragments.FragmentDomingo;
+
 
 public class EditarRutina extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +32,13 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
 
     FragmentLunes fragmentLunes;
     FragmentMartes fragmentMartes;
+    FragmentMiercoles fragmentMiercoles;
+    FragmentJueves fragmentJueves;
+    FragmentViernes fragmentViernes;
+    FragmentSabado fragmentSabado;
+    FragmentDomingo fragmentDomingo;
+
+
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
@@ -65,6 +78,15 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
 
         fragmentLunes = new FragmentLunes();
         fragmentMartes = new FragmentMartes();
+        fragmentMiercoles = new FragmentMiercoles();
+
+
+        fragmentJueves = new FragmentJueves();
+        fragmentViernes = new FragmentViernes();
+        fragmentSabado = new FragmentSabado();
+        fragmentDomingo = new FragmentDomingo();
+
+
 
     }
 
@@ -91,27 +113,32 @@ public class EditarRutina extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_tuesday:
                 showToolBar(getResources().getString(R.string.tuesday));
-                //fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMartes);
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMartes);
                 on_off_buttons(2);
                 break;
             case R.id.btn_wednesday:
                 showToolBar(getResources().getString(R.string.wednesday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentMiercoles);
                 on_off_buttons(3);
                 break;
             case R.id.btn_thursday:
                 showToolBar(getResources().getString(R.string.thursday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentJueves);
                 on_off_buttons(4);
                 break;
             case R.id.btn_friday:
                 showToolBar(getResources().getString(R.string.friday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentViernes);
                 on_off_buttons(5);
                 break;
             case R.id.btn_saturday:
                 showToolBar(getResources().getString(R.string.saturday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentSabado);
                 on_off_buttons(6);
                 break;
             case R.id.btn_sunday:
                 showToolBar(getResources().getString(R.string.sunday));
+                fragmentTransaction.replace(R.id.contenido_editar_rutina, fragmentDomingo);
                 on_off_buttons(7);
                 break;
         }
